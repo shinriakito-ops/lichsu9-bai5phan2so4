@@ -1,643 +1,598 @@
-/* =========================================================
-   LỊCH SỬ 9 — BÀI 5 PHẦN 4
-   VERSION 2.0
-========================================================= */
+/* =====================================================
+   ĐIỀU KHIỂN TRANG TRÌNH CHIẾU
+===================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+const danhSachSlide =
+    Array.from(document.querySelectorAll(".slide"));
 
-    /* =====================================================
-       ELEMENTS
-    ====================================================== */
+const tongSoSlide =
+    danhSachSlide.length;
 
-    const slides = Array.from(
-        document.querySelectorAll(".slide")
+let slideDangXem = 0;
+let dangChuyenSlide = false;
+
+
+/* =====================================================
+   LẤY PHẦN TỬ
+===================================================== */
+
+const slideHienTai =
+    document.getElementById("slideHienTai");
+
+const tongSoSlideHienThi =
+    document.getElementById("tongSoSlide");
+
+const thanhTienTrinh =
+    document.getElementById("thanhTienTrinh");
+
+const nutTruoc =
+    document.getElementById("nutTruoc");
+
+const nutSau =
+    document.getElementById("nutSau");
+
+const cacCham =
+    document.getElementById("cacCham");
+
+const nhacNen =
+    document.getElementById("nhacNen");
+
+
+/* =====================================================
+   HIỂN THỊ TỔNG SỐ SLIDE
+===================================================== */
+
+tongSoSlideHienThi.textContent =
+    String(tongSoSlide).padStart(2, "0");
+
+
+/* =====================================================
+   TẠO CÁC CHẤM ĐIỀU HƯỚNG
+===================================================== */
+
+danhSachSlide.forEach((slide, viTri) => {
+
+    const cham =
+        document.createElement("button");
+
+    cham.className = "cham-slide";
+
+    cham.title =
+        `${viTri + 1}. ${slide.dataset.ten || "Slide"}`;
+
+    cham.addEventListener("click", () => {
+
+        diToiSlide(viTri);
+
+    });
+
+    cacCham.appendChild(cham);
+
+});
+
+
+const cacChamSlide =
+    Array.from(
+        document.querySelectorAll(".cham-slide")
     );
 
-    const totalSlides = slides.length;
 
-    const currentSlideElement =
-        document.getElementById("currentSlide");
+/* =====================================================
+   HIỆN SLIDE
+===================================================== */
 
-    const totalSlidesElement =
-        document.getElementById("totalSlides");
+function hienThiSlide(viTri, huong = 1) {
 
-    const progressBar =
-        document.getElementById("progressBar");
+    if (
+        viTri < 0 ||
+        viTri >= tongSoSlide ||
+        dangChuyenSlide
+    ) {
+        return;
+    }
 
-    const prevBtn =
-        document.getElementById("prevBtn");
-
-    const nextBtn =
-        document.getElementById("nextBtn");
-
-    const navDots =
-        document.getElementById("navDots");
-
-    const particles =
-        document.getElementById("particles");
+    dangChuyenSlide = true;
 
 
-    /* =====================================================
-       STATE
-    ====================================================== */
+    danhSachSlide.forEach((slide, i) => {
 
-    let currentSlide = 0;
+        slide.classList.remove("dang-hien");
 
-    let isAnimating = false;
+        if (i === viTri) {
 
+            slide.style.transform =
+                huong > 0
+                    ? "translateX(35px)"
+                    : "translateX(-35px)";
 
-    /* =====================================================
-       TOTAL SLIDES
-    ====================================================== */
+            requestAnimationFrame(() => {
 
-    totalSlidesElement.textContent =
-        String(totalSlides).padStart(2, "0");
+                slide.classList.add("dang-hien");
 
+                slide.style.transform =
+                    "translateX(0)";
 
-    /* =====================================================
-       REVEAL INDEX
-    ====================================================== */
+            });
 
-    slides.forEach(slide => {
-
-        const revealElements =
-            slide.querySelectorAll(".reveal");
-
-        revealElements.forEach((element, index) => {
-
-            element.style.setProperty(
-                "--i",
-                index
-            );
-
-        });
+        }
 
     });
 
 
-    /* =====================================================
-       NAVIGATION DOTS
-    ====================================================== */
+    slideDangXem = viTri;
 
-    slides.forEach((slide, index) => {
 
-        const dot =
-            document.createElement("button");
+    /* Số slide */
 
-        dot.className = "nav-dot";
+    slideHienTai.textContent =
+        String(viTri + 1).padStart(2, "0");
 
-        dot.setAttribute(
-            "aria-label",
-            `Đi tới slide ${index + 1}`
+
+    /* Thanh tiến trình */
+
+    const phanTram =
+        ((viTri + 1) / tongSoSlide) * 100;
+
+    thanhTienTrinh.style.width =
+        `${phanTram}%`;
+
+
+    /* Chấm */
+
+    cacChamSlide.forEach((cham, i) => {
+
+        cham.classList.toggle(
+            "dang-chon",
+            i === viTri
         );
-
-        dot.title =
-            `${String(index + 1).padStart(2, "0")} — ${
-                slide.dataset.label || "Slide"
-            }`;
-
-        dot.addEventListener("click", () => {
-
-            goToSlide(index);
-
-        });
-
-        navDots.appendChild(dot);
 
     });
 
 
-    const dots =
-        Array.from(
-            navDots.querySelectorAll(".nav-dot")
-        );
+    /* Nút */
+
+    nutTruoc.disabled =
+        viTri === 0;
+
+    nutSau.disabled =
+        viTri === tongSoSlide - 1;
 
 
-    /* =====================================================
-       UPDATE SLIDE
-    ====================================================== */
+    /* Đưa slide về đầu */
 
-    function updateSlideView(
-        newIndex,
-        direction = 1
+    danhSachSlide[viTri].scrollTop = 0;
+
+
+    setTimeout(() => {
+
+        dangChuyenSlide = false;
+
+    }, 550);
+
+}
+
+
+/* =====================================================
+   ĐI TỚI SLIDE
+===================================================== */
+
+function diToiSlide(viTri) {
+
+    if (viTri === slideDangXem) {
+        return;
+    }
+
+    const huong =
+        viTri > slideDangXem
+            ? 1
+            : -1;
+
+    hienThiSlide(
+        viTri,
+        huong
+    );
+
+}
+
+
+/* =====================================================
+   SLIDE SAU
+===================================================== */
+
+function slideSau() {
+
+    if (
+        slideDangXem <
+        tongSoSlide - 1
     ) {
 
-        if (
-            newIndex < 0 ||
-            newIndex >= totalSlides ||
-            isAnimating
-        ) {
-            return;
-        }
-
-        isAnimating = true;
-
-        slides.forEach((slide, index) => {
-
-            slide.classList.remove("active");
-
-            if (index === newIndex) {
-
-                slide.style.transform =
-                    direction > 0
-                        ? "translate3d(35px, 0, 0) scale(0.985)"
-                        : "translate3d(-35px, 0, 0) scale(0.985)";
-
-                requestAnimationFrame(() => {
-
-                    slide.classList.add("active");
-
-                    slide.style.transform =
-                        "translate3d(0, 0, 0) scale(1)";
-
-                });
-
-            } else {
-
-                slide.style.transform =
-                    "translate3d(0, 0, 0) scale(1)";
-
-            }
-
-        });
-
-
-        currentSlide = newIndex;
-
-
-        /* Counter */
-
-        currentSlideElement.textContent =
-            String(currentSlide + 1).padStart(2, "0");
-
-
-        /* Progress */
-
-        const progress =
-            ((currentSlide + 1) / totalSlides) * 100;
-
-        progressBar.style.width =
-            `${progress}%`;
-
-
-        /* Dots */
-
-        dots.forEach((dot, index) => {
-
-            dot.classList.toggle(
-                "active",
-                index === currentSlide
-            );
-
-        });
-
-
-        /* Buttons */
-
-        prevBtn.disabled =
-            currentSlide === 0;
-
-        nextBtn.disabled =
-            currentSlide === totalSlides - 1;
-
-
-        /* Scroll */
-
-        const activeSlide =
-            slides[currentSlide];
-
-        if (activeSlide) {
-
-            activeSlide.scrollTop = 0;
-
-        }
-
-
-        setTimeout(() => {
-
-            isAnimating = false;
-
-        }, 550);
-
-    }
-
-
-    /* =====================================================
-       GO TO SLIDE
-    ====================================================== */
-
-    function goToSlide(index) {
-
-        if (index === currentSlide) {
-            return;
-        }
-
-        const direction =
-            index > currentSlide
-                ? 1
-                : -1;
-
-        updateSlideView(
-            index,
-            direction
+        diToiSlide(
+            slideDangXem + 1
         );
 
     }
 
-
-    /* =====================================================
-       NEXT
-    ====================================================== */
-
-    function nextSlide() {
-
-        if (
-            currentSlide <
-            totalSlides - 1
-        ) {
-
-            goToSlide(
-                currentSlide + 1
-            );
-
-        }
-
-    }
+}
 
 
-    /* =====================================================
-       PREVIOUS
-    ====================================================== */
+/* =====================================================
+   SLIDE TRƯỚC
+===================================================== */
 
-    function prevSlide() {
+function slideTruoc() {
 
-        if (currentSlide > 0) {
+    if (slideDangXem > 0) {
 
-            goToSlide(
-                currentSlide - 1
-            );
-
-        }
-
-    }
-
-
-    /* =====================================================
-       BUTTONS
-    ====================================================== */
-
-    nextBtn.addEventListener(
-        "click",
-        nextSlide
-    );
-
-    prevBtn.addEventListener(
-        "click",
-        prevSlide
-    );
-
-
-    /* =====================================================
-       KEYBOARD
-    ====================================================== */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            const key =
-                event.key.toLowerCase();
-
-
-            if (
-                key === "arrowright" ||
-                key === " " ||
-                key === "pagedown"
-            ) {
-
-                event.preventDefault();
-
-                nextSlide();
-
-            }
-
-
-            else if (
-                key === "arrowleft" ||
-                key === "pageup"
-            ) {
-
-                event.preventDefault();
-
-                prevSlide();
-
-            }
-
-
-            else if (key === "home") {
-
-                event.preventDefault();
-
-                goToSlide(0);
-
-            }
-
-
-            else if (key === "end") {
-
-                event.preventDefault();
-
-                goToSlide(
-                    totalSlides - 1
-                );
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       QUIZ
-    ====================================================== */
-
-    const correctAnswers = [
-        2,
-        1,
-        0
-    ];
-
-
-    const quizSlides =
-        Array.from(
-            document.querySelectorAll(".quiz-slide")
+        diToiSlide(
+            slideDangXem - 1
         );
 
+    }
 
-    quizSlides.forEach(
-        (quizSlide, quizIndex) => {
-
-            const options =
-                Array.from(
-                    quizSlide.querySelectorAll(
-                        ".quiz-option"
-                    )
-                );
-
-            const feedback =
-                quizSlide.querySelector(
-                    ".quiz-feedback"
-                );
-
-            options.forEach(option => {
-
-                option.addEventListener(
-                    "click",
-                    () => {
-
-                        const selected =
-                            Number(
-                                option.dataset.answer
-                            );
-
-                        const correct =
-                            correctAnswers[
-                                quizIndex
-                            ];
+}
 
 
-                        /* Không cho chọn lại */
+/* =====================================================
+   NÚT ĐIỀU KHIỂN
+===================================================== */
 
-                        options.forEach(
-                            button => {
+nutSau.addEventListener(
+    "click",
+    slideSau
+);
 
-                                button.disabled =
-                                    true;
+nutTruoc.addEventListener(
+    "click",
+    slideTruoc
+);
+
+
+/* =====================================================
+   PHÍM BÀN PHÍM
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        const phim =
+            event.key.toLowerCase();
+
+
+        if (
+            phim === "arrowright" ||
+            phim === " " ||
+            phim === "pagedown"
+        ) {
+
+            event.preventDefault();
+
+            slideSau();
+
+        }
+
+
+        else if (
+            phim === "arrowleft" ||
+            phim === "pageup"
+        ) {
+
+            event.preventDefault();
+
+            slideTruoc();
+
+        }
+
+
+        else if (phim === "home") {
+
+            event.preventDefault();
+
+            diToiSlide(0);
+
+        }
+
+
+        else if (phim === "end") {
+
+            event.preventDefault();
+
+            diToiSlide(
+                tongSoSlide - 1
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+const cacSlideCauHoi =
+    Array.from(
+        document.querySelectorAll(".slide-cau-hoi")
+    );
+
+
+cacSlideCauHoi.forEach(
+    (slide, soCau) => {
+
+        const cacDapAn =
+            Array.from(
+                slide.querySelectorAll(".dap-an")
+            );
+
+        const phanHoi =
+            slide.querySelector(".phan-hoi");
+
+        const tenCau =
+            `cau${soCau + 1}`;
+
+        cacDapAn.forEach((nut) => {
+
+            nut.addEventListener(
+                "click",
+                () => {
+
+                    /* Không cho bấm lại */
+
+                    cacDapAn.forEach(
+                        (item) => {
+
+                            item.disabled = true;
+
+                        }
+                    );
+
+
+                    const dapAnChon =
+                        nut.dataset.dapAn;
+
+                    const dapAnDung =
+                        window.dapAnDung
+                            ? window.dapAnDung[tenCau]
+                            : null;
+
+
+                    /*
+                       data.js khai báo const.
+                       Ở đây dùng dữ liệu tương ứng
+                       theo số câu.
+                    */
+
+                    const dapAnChinhXac =
+                        soCau === 0
+                            ? "C"
+                            : soCau === 1
+                                ? "C"
+                                : "B";
+
+
+                    if (
+                        dapAnChon ===
+                        dapAnChinhXac
+                    ) {
+
+                        nut.classList.add(
+                            "chon-dung"
+                        );
+
+                        phanHoi.textContent =
+                            "✓ Chính xác!";
+
+                        phanHoi.className =
+                            "phan-hoi dung";
+
+                    } else {
+
+                        nut.classList.add(
+                            "chon-sai"
+                        );
+
+
+                        cacDapAn.forEach(
+                            (item) => {
+
+                                if (
+                                    item.dataset.dapAn ===
+                                    dapAnChinhXac
+                                ) {
+
+                                    item.classList.add(
+                                        "dap-an-dung"
+                                    );
+
+                                }
 
                             }
                         );
 
 
-                        /* Đúng */
+                        phanHoi.textContent =
+                            `Chưa đúng — đáp án đúng là ${dapAnChinhXac}.`;
 
-                        if (
-                            selected === correct
-                        ) {
-
-                            option.classList.add(
-                                "correct"
-                            );
-
-                            feedback.textContent =
-                                "✓ Chính xác!";
-
-                            feedback.className =
-                                "quiz-feedback success";
-
-                        }
-
-
-                        /* Sai */
-
-                        else {
-
-                            option.classList.add(
-                                "wrong"
-                            );
-
-                            options[correct]
-                                .classList.add(
-                                    "correct-answer"
-                                );
-
-                            const answerLetter =
-                                options[
-                                    correct
-                                ]
-                                .querySelector("span")
-                                .textContent;
-
-                            feedback.textContent =
-                                `Chưa đúng — đáp án đúng là ${answerLetter}.`;
-
-                            feedback.className =
-                                "quiz-feedback fail";
-
-                        }
+                        phanHoi.className =
+                            "phan-hoi sai";
 
                     }
-                );
 
-            });
-
-        }
-    );
-
-
-    /* =====================================================
-       PARTICLES
-    ====================================================== */
-
-    function createParticles() {
-
-        if (!particles) {
-            return;
-        }
-
-        const count =
-            window.innerWidth < 700
-                ? 15
-                : 30;
-
-        for (
-            let i = 0;
-            i < count;
-            i++
-        ) {
-
-            const particle =
-                document.createElement("span");
-
-            particle.className =
-                "particle";
-
-            particle.style.left =
-                `${Math.random() * 100}%`;
-
-            particle.style.top =
-                `${Math.random() * 100}%`;
-
-            particle.style.opacity =
-                `${0.08 + Math.random() * 0.18}`;
-
-            particle.style.animationDuration =
-                `${8 + Math.random() * 15}s`;
-
-            particle.style.animationDelay =
-                `${Math.random() * -15}s`;
-
-            particles.appendChild(
-                particle
+                }
             );
 
-        }
+        });
+
+    }
+);
+
+
+/* =====================================================
+   NHẠC NỀN
+===================================================== */
+
+let daBatNhac = false;
+
+
+function batNhacNen() {
+
+    if (
+        daBatNhac ||
+        !nhacNen
+    ) {
+        return;
+    }
+
+    nhacNen.volume = 0.16;
+
+    nhacNen.play()
+        .then(() => {
+
+            daBatNhac = true;
+
+        })
+        .catch(() => {
+
+            /*
+                Trình duyệt có thể chặn autoplay.
+                Khi người dùng bấm vào trang,
+                ta sẽ thử phát lại.
+            */
+
+        });
+
+}
+
+
+document.addEventListener(
+    "click",
+    batNhacNen,
+    {
+        once: true
+    }
+);
+
+
+/* =====================================================
+   HIỆU ỨNG NỀN NHẸ
+===================================================== */
+
+const hatSang =
+    document.getElementById("hat-sang");
+
+
+function taoHatSang() {
+
+    if (!hatSang) {
+        return;
+    }
+
+    const soLuong =
+        window.innerWidth < 700
+            ? 12
+            : 24;
+
+    for (
+        let i = 0;
+        i < soLuong;
+        i++
+    ) {
+
+        const hat =
+            document.createElement("span");
+
+        hat.className =
+            "hat";
+
+        hat.style.left =
+            `${Math.random() * 100}%`;
+
+        hat.style.top =
+            `${Math.random() * 100}%`;
+
+        hat.style.animationDuration =
+            `${9 + Math.random() * 12}s`;
+
+        hat.style.animationDelay =
+            `${Math.random() * -12}s`;
+
+        hatSang.appendChild(hat);
 
     }
 
-    createParticles();
+}
 
 
-    /* =====================================================
-       TOUCH / SWIPE
-    ====================================================== */
-
-    let touchStartX = 0;
-    let touchEndX = 0;
+taoHatSang();
 
 
-    document.addEventListener(
-        "touchstart",
-        event => {
+/* =====================================================
+   SWIPE
+===================================================== */
 
-            touchStartX =
-                event.changedTouches[0].screenX;
-
-        },
-        {
-            passive: true
-        }
-    );
+let viTriBatDau = 0;
+let viTriKetThuc = 0;
 
 
-    document.addEventListener(
-        "touchend",
-        event => {
+document.addEventListener(
+    "touchstart",
+    (event) => {
 
-            touchEndX =
-                event.changedTouches[0].screenX;
+        viTriBatDau =
+            event.changedTouches[0].screenX;
 
-            handleSwipe();
-
-        },
-        {
-            passive: true
-        }
-    );
+    },
+    {
+        passive: true
+    }
+);
 
 
-    function handleSwipe() {
+document.addEventListener(
+    "touchend",
+    (event) => {
 
-        const distance =
-            touchEndX - touchStartX;
+        viTriKetThuc =
+            event.changedTouches[0].screenX;
 
-        const threshold = 60;
+        const khoangCach =
+            viTriKetThuc -
+            viTriBatDau;
 
         if (
-            Math.abs(distance) <
-            threshold
+            Math.abs(khoangCach) < 60
         ) {
             return;
         }
 
-        if (distance < 0) {
+        if (khoangCach < 0) {
 
-            nextSlide();
+            slideSau();
 
         } else {
 
-            prevSlide();
+            slideTruoc();
 
         }
 
+    },
+    {
+        passive: true
     }
+);
 
 
-    /* =====================================================
-       INITIAL STATE
-    ====================================================== */
+/* =====================================================
+   KHỞI ĐỘNG
+===================================================== */
 
-    slides.forEach(
-        (slide, index) => {
-
-            slide.classList.toggle(
-                "active",
-                index === 0
-            );
-
-        }
-    );
+hienThiSlide(
+    0,
+    1
+);
 
 
-    dots.forEach(
-        (dot, index) => {
-
-            dot.classList.toggle(
-                "active",
-                index === 0
-            );
-
-        }
-    );
-
-
-    progressBar.style.width =
-        `${(1 / totalSlides) * 100}%`;
-
-
-    prevBtn.disabled = true;
-
-
-    /* =====================================================
-       CONSOLE
-    ====================================================== */
-
-    console.log(
-        `%cLỊCH SỬ 9 — BÀI 5 PHẦN 4`,
-        "font-weight:700;color:#d7b45c;"
-    );
-
-    console.log(
-        `Version 2.0 • ${totalSlides} slides`
-    );
-
-});
+console.log(
+    "Lịch sử 9 - Bài 5 - Phần 4 | Nhóm 4 - 9A.6"
+);
