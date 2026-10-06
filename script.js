@@ -1,368 +1,643 @@
-/* =========================================
-   TRẠNG THÁI TRÌNH CHIẾU
-========================================= */
+/* =========================================================
+   LỊCH SỬ 9 — BÀI 5 PHẦN 4
+   VERSION 2.0
+========================================================= */
 
-let currentSlide = 0;
+document.addEventListener("DOMContentLoaded", () => {
 
-const slides = document.querySelectorAll(".slide");
-const totalSlides = slides.length;
+    /* =====================================================
+       ELEMENTS
+    ====================================================== */
 
-const currentSlideNum =
-  document.getElementById("currentSlideNum");
-
-const progressBar =
-  document.getElementById("progressBar");
-
-
-/* =========================================
-   CẬP NHẬT SLIDE
-========================================= */
-
-function updateSlideView() {
-
-  slides.forEach((slide, index) => {
-
-    slide.classList.toggle(
-      "active",
-      index === currentSlide
+    const slides = Array.from(
+        document.querySelectorAll(".slide")
     );
 
-  });
+    const totalSlides = slides.length;
+
+    const currentSlideElement =
+        document.getElementById("currentSlide");
+
+    const totalSlidesElement =
+        document.getElementById("totalSlides");
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+    const prevBtn =
+        document.getElementById("prevBtn");
+
+    const nextBtn =
+        document.getElementById("nextBtn");
+
+    const navDots =
+        document.getElementById("navDots");
+
+    const particles =
+        document.getElementById("particles");
 
 
-  /* Cập nhật số slide */
+    /* =====================================================
+       STATE
+    ====================================================== */
 
-  currentSlideNum.textContent =
-    String(currentSlide + 1).padStart(2, "0");
+    let currentSlide = 0;
 
-
-  /* Cập nhật thanh tiến trình */
-
-  const progress =
-    ((currentSlide + 1) / totalSlides) * 100;
-
-  progressBar.style.width =
-    `${progress}%`;
-
-}
+    let isAnimating = false;
 
 
-/* =========================================
-   SLIDE TIẾP THEO
-========================================= */
+    /* =====================================================
+       TOTAL SLIDES
+    ====================================================== */
 
-function nextSlide() {
-
-  if (currentSlide < totalSlides - 1) {
-
-    currentSlide++;
-
-    updateSlideView();
-
-  }
-
-}
+    totalSlidesElement.textContent =
+        String(totalSlides).padStart(2, "0");
 
 
-/* =========================================
-   SLIDE TRƯỚC
-========================================= */
+    /* =====================================================
+       REVEAL INDEX
+    ====================================================== */
 
-function prevSlide() {
+    slides.forEach(slide => {
 
-  if (currentSlide > 0) {
+        const revealElements =
+            slide.querySelectorAll(".reveal");
 
-    currentSlide--;
+        revealElements.forEach((element, index) => {
 
-    updateSlideView();
+            element.style.setProperty(
+                "--i",
+                index
+            );
 
-  }
+        });
 
-}
-
-
-/* =========================================
-   ĐẾN SLIDE BẤT KỲ
-========================================= */
-
-function goToSlide(index) {
-
-  if (
-    index >= 0 &&
-    index < totalSlides
-  ) {
-
-    currentSlide = index;
-
-    updateSlideView();
-
-  }
-
-}
+    });
 
 
-/* =========================================
-   PHÍM BÀN PHÍM
-========================================= */
+    /* =====================================================
+       NAVIGATION DOTS
+    ====================================================== */
 
-window.addEventListener(
-  "keydown",
-  (event) => {
+    slides.forEach((slide, index) => {
 
-    /*
-      Mũi tên phải:
-      Slide tiếp
-    */
+        const dot =
+            document.createElement("button");
 
-    if (
-      event.key === "ArrowRight" ||
-      event.key === "ArrowDown" ||
-      event.key === " "
+        dot.className = "nav-dot";
+
+        dot.setAttribute(
+            "aria-label",
+            `Đi tới slide ${index + 1}`
+        );
+
+        dot.title =
+            `${String(index + 1).padStart(2, "0")} — ${
+                slide.dataset.label || "Slide"
+            }`;
+
+        dot.addEventListener("click", () => {
+
+            goToSlide(index);
+
+        });
+
+        navDots.appendChild(dot);
+
+    });
+
+
+    const dots =
+        Array.from(
+            navDots.querySelectorAll(".nav-dot")
+        );
+
+
+    /* =====================================================
+       UPDATE SLIDE
+    ====================================================== */
+
+    function updateSlideView(
+        newIndex,
+        direction = 1
     ) {
 
-      event.preventDefault();
+        if (
+            newIndex < 0 ||
+            newIndex >= totalSlides ||
+            isAnimating
+        ) {
+            return;
+        }
 
-      nextSlide();
+        isAnimating = true;
+
+        slides.forEach((slide, index) => {
+
+            slide.classList.remove("active");
+
+            if (index === newIndex) {
+
+                slide.style.transform =
+                    direction > 0
+                        ? "translate3d(35px, 0, 0) scale(0.985)"
+                        : "translate3d(-35px, 0, 0) scale(0.985)";
+
+                requestAnimationFrame(() => {
+
+                    slide.classList.add("active");
+
+                    slide.style.transform =
+                        "translate3d(0, 0, 0) scale(1)";
+
+                });
+
+            } else {
+
+                slide.style.transform =
+                    "translate3d(0, 0, 0) scale(1)";
+
+            }
+
+        });
+
+
+        currentSlide = newIndex;
+
+
+        /* Counter */
+
+        currentSlideElement.textContent =
+            String(currentSlide + 1).padStart(2, "0");
+
+
+        /* Progress */
+
+        const progress =
+            ((currentSlide + 1) / totalSlides) * 100;
+
+        progressBar.style.width =
+            `${progress}%`;
+
+
+        /* Dots */
+
+        dots.forEach((dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentSlide
+            );
+
+        });
+
+
+        /* Buttons */
+
+        prevBtn.disabled =
+            currentSlide === 0;
+
+        nextBtn.disabled =
+            currentSlide === totalSlides - 1;
+
+
+        /* Scroll */
+
+        const activeSlide =
+            slides[currentSlide];
+
+        if (activeSlide) {
+
+            activeSlide.scrollTop = 0;
+
+        }
+
+
+        setTimeout(() => {
+
+            isAnimating = false;
+
+        }, 550);
 
     }
 
 
-    /*
-      Mũi tên trái:
-      Slide trước
-    */
+    /* =====================================================
+       GO TO SLIDE
+    ====================================================== */
 
-    if (
-      event.key === "ArrowLeft" ||
-      event.key === "ArrowUp"
-    ) {
+    function goToSlide(index) {
 
-      event.preventDefault();
+        if (index === currentSlide) {
+            return;
+        }
 
-      prevSlide();
+        const direction =
+            index > currentSlide
+                ? 1
+                : -1;
 
-    }
-
-
-    /*
-      Home:
-      Về slide đầu
-    */
-
-    if (event.key === "Home") {
-
-      goToSlide(0);
+        updateSlideView(
+            index,
+            direction
+        );
 
     }
 
 
-    /*
-      End:
-      Đến slide cuối
-    */
+    /* =====================================================
+       NEXT
+    ====================================================== */
 
-    if (event.key === "End") {
+    function nextSlide() {
 
-      goToSlide(totalSlides - 1);
+        if (
+            currentSlide <
+            totalSlides - 1
+        ) {
+
+            goToSlide(
+                currentSlide + 1
+            );
+
+        }
 
     }
 
-  }
-);
+
+    /* =====================================================
+       PREVIOUS
+    ====================================================== */
+
+    function prevSlide() {
+
+        if (currentSlide > 0) {
+
+            goToSlide(
+                currentSlide - 1
+            );
+
+        }
+
+    }
 
 
-/* =========================================
-   TRẮC NGHIỆM
-========================================= */
+    /* =====================================================
+       BUTTONS
+    ====================================================== */
 
-const correctAnswers = [
+    nextBtn.addEventListener(
+        "click",
+        nextSlide
+    );
 
-  2, // Câu 1 → C
-  2, // Câu 2 → C
-  1  // Câu 3 → B
-
-];
-
-
-function checkAnswer(
-  button,
-  quizIndex,
-  selectedOption
-) {
-
-  const container =
-    button.parentElement;
-
-  const buttons =
-    container.querySelectorAll(".opt-btn");
-
-  const message =
-    container.parentElement.querySelector(
-      ".answer-message"
+    prevBtn.addEventListener(
+        "click",
+        prevSlide
     );
 
 
-  /*
-    Nếu đã trả lời rồi
-    thì không cho chọn lại.
-  */
+    /* =====================================================
+       KEYBOARD
+    ====================================================== */
 
-  if (
-    container.dataset.answered === "true"
-  ) {
+    document.addEventListener(
+        "keydown",
+        event => {
 
-    return;
-
-  }
+            const key =
+                event.key.toLowerCase();
 
 
-  container.dataset.answered = "true";
+            if (
+                key === "arrowright" ||
+                key === " " ||
+                key === "pagedown"
+            ) {
+
+                event.preventDefault();
+
+                nextSlide();
+
+            }
 
 
-  /*
-    Khóa tất cả đáp án
-  */
+            else if (
+                key === "arrowleft" ||
+                key === "pageup"
+            ) {
 
-  buttons.forEach((btn) => {
+                event.preventDefault();
 
-    btn.disabled = true;
+                prevSlide();
 
-  });
-
-
-  /*
-    Trả lời đúng
-  */
-
-  if (
-    selectedOption ===
-    correctAnswers[quizIndex]
-  ) {
-
-    button.classList.add("correct");
-
-    if (message) {
-
-      message.textContent =
-        "✓ Chính xác!";
-
-      message.style.color =
-        "#82b58c";
-
-    }
-
-    return;
-
-  }
+            }
 
 
-  /*
-    Trả lời sai
-  */
+            else if (key === "home") {
 
-  button.classList.add("wrong");
+                event.preventDefault();
+
+                goToSlide(0);
+
+            }
 
 
-  /*
-    Tìm đáp án đúng
-  */
+            else if (key === "end") {
 
-  const correctButton =
-    buttons[
-      correctAnswers[quizIndex]
+                event.preventDefault();
+
+                goToSlide(
+                    totalSlides - 1
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       QUIZ
+    ====================================================== */
+
+    const correctAnswers = [
+        2,
+        1,
+        0
     ];
 
 
-  if (correctButton) {
+    const quizSlides =
+        Array.from(
+            document.querySelectorAll(".quiz-slide")
+        );
 
-    correctButton.classList.add(
-      "correct"
+
+    quizSlides.forEach(
+        (quizSlide, quizIndex) => {
+
+            const options =
+                Array.from(
+                    quizSlide.querySelectorAll(
+                        ".quiz-option"
+                    )
+                );
+
+            const feedback =
+                quizSlide.querySelector(
+                    ".quiz-feedback"
+                );
+
+            options.forEach(option => {
+
+                option.addEventListener(
+                    "click",
+                    () => {
+
+                        const selected =
+                            Number(
+                                option.dataset.answer
+                            );
+
+                        const correct =
+                            correctAnswers[
+                                quizIndex
+                            ];
+
+
+                        /* Không cho chọn lại */
+
+                        options.forEach(
+                            button => {
+
+                                button.disabled =
+                                    true;
+
+                            }
+                        );
+
+
+                        /* Đúng */
+
+                        if (
+                            selected === correct
+                        ) {
+
+                            option.classList.add(
+                                "correct"
+                            );
+
+                            feedback.textContent =
+                                "✓ Chính xác!";
+
+                            feedback.className =
+                                "quiz-feedback success";
+
+                        }
+
+
+                        /* Sai */
+
+                        else {
+
+                            option.classList.add(
+                                "wrong"
+                            );
+
+                            options[correct]
+                                .classList.add(
+                                    "correct-answer"
+                                );
+
+                            const answerLetter =
+                                options[
+                                    correct
+                                ]
+                                .querySelector("span")
+                                .textContent;
+
+                            feedback.textContent =
+                                `Chưa đúng — đáp án đúng là ${answerLetter}.`;
+
+                            feedback.className =
+                                "quiz-feedback fail";
+
+                        }
+
+                    }
+                );
+
+            });
+
+        }
     );
 
-  }
+
+    /* =====================================================
+       PARTICLES
+    ====================================================== */
+
+    function createParticles() {
+
+        if (!particles) {
+            return;
+        }
+
+        const count =
+            window.innerWidth < 700
+                ? 15
+                : 30;
+
+        for (
+            let i = 0;
+            i < count;
+            i++
+        ) {
+
+            const particle =
+                document.createElement("span");
+
+            particle.className =
+                "particle";
+
+            particle.style.left =
+                `${Math.random() * 100}%`;
+
+            particle.style.top =
+                `${Math.random() * 100}%`;
+
+            particle.style.opacity =
+                `${0.08 + Math.random() * 0.18}`;
+
+            particle.style.animationDuration =
+                `${8 + Math.random() * 15}s`;
+
+            particle.style.animationDelay =
+                `${Math.random() * -15}s`;
+
+            particles.appendChild(
+                particle
+            );
+
+        }
+
+    }
+
+    createParticles();
 
 
-  if (message) {
+    /* =====================================================
+       TOUCH / SWIPE
+    ====================================================== */
 
-    message.textContent =
-      "Chưa đúng. Đáp án đúng được đánh dấu màu xanh.";
-
-    message.style.color =
-      "#d88982";
-
-  }
-
-}
+    let touchStartX = 0;
+    let touchEndX = 0;
 
 
-/* =========================================
-   TOUCH / SWIPE
-========================================= */
+    document.addEventListener(
+        "touchstart",
+        event => {
 
-let touchStartX = 0;
-let touchEndX = 0;
+            touchStartX =
+                event.changedTouches[0].screenX;
 
-
-document.addEventListener(
-  "touchstart",
-  (event) => {
-
-    touchStartX =
-      event.changedTouches[0].screenX;
-
-  },
-  { passive: true }
-);
+        },
+        {
+            passive: true
+        }
+    );
 
 
-document.addEventListener(
-  "touchend",
-  (event) => {
+    document.addEventListener(
+        "touchend",
+        event => {
 
-    touchEndX =
-      event.changedTouches[0].screenX;
+            touchEndX =
+                event.changedTouches[0].screenX;
 
-    handleSwipe();
+            handleSwipe();
 
-  },
-  { passive: true }
-);
-
-
-function handleSwipe() {
-
-  const distance =
-    touchEndX - touchStartX;
+        },
+        {
+            passive: true
+        }
+    );
 
 
-  /*
-    Vuốt sang trái
-    → slide tiếp
-  */
+    function handleSwipe() {
 
-  if (distance < -60) {
+        const distance =
+            touchEndX - touchStartX;
 
-    nextSlide();
+        const threshold = 60;
 
-  }
+        if (
+            Math.abs(distance) <
+            threshold
+        ) {
+            return;
+        }
+
+        if (distance < 0) {
+
+            nextSlide();
+
+        } else {
+
+            prevSlide();
+
+        }
+
+    }
 
 
-  /*
-    Vuốt sang phải
-    → slide trước
-  */
+    /* =====================================================
+       INITIAL STATE
+    ====================================================== */
 
-  if (distance > 60) {
+    slides.forEach(
+        (slide, index) => {
 
-    prevSlide();
+            slide.classList.toggle(
+                "active",
+                index === 0
+            );
 
-  }
+        }
+    );
 
-}
+
+    dots.forEach(
+        (dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === 0
+            );
+
+        }
+    );
 
 
-/* =========================================
-   KHỞI TẠO
-========================================= */
+    progressBar.style.width =
+        `${(1 / totalSlides) * 100}%`;
 
-updateSlideView();
+
+    prevBtn.disabled = true;
+
+
+    /* =====================================================
+       CONSOLE
+    ====================================================== */
+
+    console.log(
+        `%cLỊCH SỬ 9 — BÀI 5 PHẦN 4`,
+        "font-weight:700;color:#d7b45c;"
+    );
+
+    console.log(
+        `Version 2.0 • ${totalSlides} slides`
+    );
+
+});
