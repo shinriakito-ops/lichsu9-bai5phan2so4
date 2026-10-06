@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bài 5 – Phần 4: Sự ra đời của các tổ chức yêu nước cách mạng</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070403;--g:#d4af37;--g2:#ffd76a;--tx:#fcf8f2;--mu:#c8b9ab;--ok:#34c759;--no:#ff3b30;--d:1;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0;padding:0;user-select:none}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--tx);font-family:'Be Vietnam Pro',sans-serif}
+body{background:radial-gradient(ellipse at 50% 40%,#2a120c 0,#070403 70%)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:5;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.7))}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+#bg{z-index:1}#cf{z-index:99}
+.drum{position:fixed;left:50%;top:50%;width:130vmin;height:130vmin;margin:-65vmin 0 0 -65vmin;opacity:.1;z-index:0;fill:none;stroke:var(--g);animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#pg{position:fixed;top:0;left:0;height:4px;width:0;z-index:60;background:linear-gradient(90deg,#8b0000,var(--g2));box-shadow:0 0 14px var(--g2);transition:width .8s cubic-bezier(.16,1,.3,1)}
+.hd{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:20px;right:20px;display:flex;justify-content:space-between;z-index:50;pointer-events:none}
+.pill{font-size:12px;font-weight:700;letter-spacing:1.4px;color:var(--g2);background:rgba(18,10,8,.85);border:1px solid var(--g);padding:7px 16px;border-radius:30px}
+#st{position:absolute;inset:0;z-index:10}#sc{position:absolute;left:50%;top:50%;width:1100px;height:640px;margin:-320px 0 0 -550px;transform:scale(var(--k,1));perspective:1400px}
+.slide{display:none;position:absolute;top:0;left:0;width:1100px;height:640px;flex-direction:column;justify-content:center;padding:42px 54px;overflow:hidden auto;border:2px solid var(--g);border-radius:20px;background:linear-gradient(160deg,rgba(34,17,12,.94),rgba(14,8,6,.96));outline:1px solid rgba(212,175,55,.4);outline-offset:-10px;box-shadow:0 30px 80px #000,inset 0 0 60px rgba(212,175,55,.08)}
+.slide.active{display:flex;z-index:2;animation:in 1.1s var(--e) backwards}
+.slide.leave{display:flex;z-index:1;pointer-events:none;animation:out .6s cubic-bezier(.7,0,.84,0) forwards}
+@keyframes in{from{opacity:0;transform:var(--f);clip-path:var(--cf)}to{opacity:1;transform:none;clip-path:var(--ce)}}
+@keyframes out{to{opacity:0;transform:var(--o)}}
+.slide.active::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,215,106,.22) 50%,transparent 65%);animation:sw 1.6s .25s ease-out both}
+@keyframes sw{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.ti{position:relative;font-family:'Playfair Display',serif;font-size:clamp(24px,3.6vw,38px);font-weight:900;line-height:1.25;margin-bottom:18px;padding-bottom:10px;border-bottom:2px dashed rgba(212,175,55,.35)}
+.w{display:inline-block;color:var(--g2);text-shadow:0 2px 16px rgba(244,196,48,.35)}
+.active .w{animation:wd .9s cubic-bezier(.16,1,.3,1) calc(.2s + var(--j)*.07s) backwards}
+@keyframes wd{from{opacity:0;transform:translateY(.6em)}}
+.active .a{animation:ri .9s cubic-bezier(.16,1,.3,1) calc(.5s + var(--i)*.15s) backwards}
+@keyframes ri{from{opacity:0;transform:translate(var(--x,0),50px) scale(.9)}}
+.a.l{--x:-70px}.a.r{--x:70px}
+.g{position:relative;display:grid;gap:22px;width:100%}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+.card{position:relative;background:rgba(36,20,15,.82);border:1px solid var(--g);border-radius:16px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.5);transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s,box-shadow .3s,border-color .3s}
+.card:hover{border-color:var(--g2);box-shadow:0 14px 36px rgba(244,196,48,.28)}
+.ic{font-size:30px;margin-bottom:10px;filter:drop-shadow(0 0 10px rgba(255,215,106,.5))}
+.card h3{font-size:19px;margin-bottom:8px}.card p{font-size:15px;line-height:1.7;color:var(--mu)}
+.card b{color:var(--g2)}
+.card small{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--g);margin-top:10px}
+.big{text-align:center;padding:34px;border-left:5px solid var(--g)}.big.red{border-color:var(--no)}
+.hl{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:900;color:var(--g2);margin-bottom:14px}.big.red .hl{color:#ff6b5e}
+.big p{font-size:17px;color:var(--tx)}
+.wm{position:absolute;right:34px;top:12px;font:900 clamp(70px,13vw,150px)/1 'Playfair Display',serif;color:transparent;-webkit-text-stroke:1px rgba(212,175,55,.35);pointer-events:none}
+.qq{font-size:clamp(17px,2.2vw,21px);font-weight:700}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;background:rgba(45,28,22,.85);border:2px solid var(--g);border-radius:12px;padding:16px 18px;color:var(--tx);font:600 16px 'Be Vietnam Pro',sans-serif;cursor:pointer;transition:.25s}
+.opt:disabled{cursor:default;color:var(--tx)}
+.opt:hover:not(:disabled){background:rgba(139,0,0,.5);transform:scale(1.03)}
+.lt{flex:none;width:34px;height:34px;border-radius:50%;background:var(--g2);color:#000;display:grid;place-items:center;font-weight:800}
+.opt.ok{background:rgba(52,199,89,.28);border-color:var(--ok);box-shadow:0 0 24px rgba(52,199,89,.6)}
+.opt.no{background:rgba(255,59,48,.28);border-color:var(--no);box-shadow:0 0 24px rgba(255,59,48,.5)}
+.opt.sh{animation:sk .5s}
+@keyframes sk{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+.rev .opt:not(.ok){opacity:.3;filter:grayscale(.6)}
+.rev .opt.ok{transform:scale(1.05);animation:gl 1.4s ease-in-out infinite alternate}
+@keyframes gl{to{box-shadow:0 0 42px rgba(52,199,89,.95)}}
+.timer{height:5px;background:rgba(255,255,255,.1);border-radius:3px;margin-top:20px;overflow:hidden}
+.timer i{display:block;height:100%;transform-origin:left;background:linear-gradient(90deg,var(--no),var(--g2));animation:tm 20s linear forwards}
+@keyframes tm{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+.timer.done i{animation:none;transform:scaleX(0)}
+.pk{margin:16px 0 12px;font-weight:700;color:var(--g2)}
+.sm{display:flex;flex-direction:column;gap:14px}.sm .card{display:flex;gap:18px;align-items:center}.sm p{color:var(--tx)}
+.num{font:900 36px 'Playfair Display',serif}
+.cv{text-align:center}.cv .ti{font-size:clamp(26px,4vw,44px);border:0;margin:14px 0 8px}
+.cv .eb{margin:0;letter-spacing:4px;color:var(--g2);font-weight:700;font-size:14px;text-transform:uppercase}
+.yr{font:900 clamp(40px,8vw,84px) 'Playfair Display',serif;color:var(--g2);text-shadow:0 0 30px rgba(244,196,48,.5)}.yr i{font-style:normal;opacity:.6;margin:0 .3em}
+.cv p{color:var(--mu);max-width:720px;margin:10px auto 26px;line-height:1.6}
+.nv{padding:12px 24px;border-radius:30px;background:#8b0000;border:1px solid var(--g);color:var(--tx);font:700 15px 'Be Vietnam Pro',sans-serif;cursor:pointer;transition:.25s}
+.nv:hover{background:#a80000;box-shadow:0 0 20px rgba(244,196,48,.5);transform:translateY(-2px)}
+.nav{position:fixed;bottom:calc(22px + env(safe-area-inset-bottom,0px));right:26px;display:flex;gap:10px;z-index:50}
+.tl{position:fixed;left:34px;bottom:calc(36px + env(safe-area-inset-bottom,0px));width:min(380px,42vw);height:4px;background:rgba(212,175,55,.25);border-radius:2px;z-index:50}
+.tl .f{height:100%;border-radius:2px;background:linear-gradient(90deg,#8b0000,var(--g2));box-shadow:0 0 10px var(--g2);transition:width 1s cubic-bezier(.16,1,.3,1)}
+.tl span{position:absolute;top:-4px;padding-top:14px;font-size:11px;color:var(--mu);transform:translateX(-50%);transition:.5s}
+.tl span::before{content:'';position:absolute;top:0;left:50%;width:12px;height:12px;margin-left:-6px;border:2px solid var(--g);border-radius:50%;background:#1a0d09;transition:.5s}
+.tl span.on{color:var(--g2)}.tl span.on::before{background:var(--g2);box-shadow:0 0 12px var(--g2)}
+@media(max-width:768px){#sc{inset:0;width:auto;height:auto;margin:0;transform:none}.slide{padding:22px 20px;top:60px;bottom:90px;left:0;right:0;margin:auto;width:92%;height:auto}.g2,.g3,.opts{grid-template-columns:1fr}.tl{display:none}.nav{left:0;right:0;justify-content:center}.pill{font-size:10px;padding:6px 10px}}
+body::before{content:'';position:fixed;inset:-50%;z-index:6;pointer-events:none;opacity:.09;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");animation:gr .6s steps(4) infinite}
+@keyframes gr{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
+.lead{font-style:italic;color:var(--g2);margin:-8px 0 16px;font-size:17px}
+.tip{position:relative;margin-top:16px;padding:10px 16px;border-radius:10px;background:rgba(212,175,55,.12);border:1px dashed var(--g);font-size:15px;color:var(--g2)}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.5}
+th{color:var(--g2);text-align:left;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-bottom:2px solid var(--g)}
+td{padding:10px;border-bottom:1px solid rgba(212,175,55,.25);color:var(--mu);vertical-align:top}td:first-child{color:var(--tx)}td b{color:var(--g2)}
+.th{position:absolute;right:22px;bottom:16px;width:150px;cursor:pointer;border:2px solid var(--g);background:#000;border-radius:8px;overflow:hidden;z-index:3}
+.th img{display:block;width:100%;height:90px;object-fit:cover;filter:sepia(.45)}.th span{display:block;font-size:11px;color:var(--g2);text-align:center;padding:3px}
+#lb{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.9);display:none;place-items:center;cursor:zoom-out}#lb.on{display:grid}
+#lb figure{text-align:center}#lb img{max-width:90vw;max-height:78vh;border:3px solid var(--g);filter:sepia(.3) contrast(1.05);box-shadow:0 0 60px #000}
+#lb figcaption{color:var(--g2);margin-top:12px;font-size:17px}
+.nav{flex-wrap:wrap}.nav .nv{padding:10px 14px;font-size:13px}
+
+.ts{position:fixed;top:calc(62px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:rgba(18,10,8,.92);border:1px solid var(--g);color:var(--g2);padding:8px 20px;border-radius:30px;z-index:80;opacity:0;transition:opacity .3s;pointer-events:none;font-weight:700}.ts.on{opacity:1}
+.cv .eb2{margin:8px 0 0;max-width:none;color:var(--tx);font-weight:600;font-size:15px;letter-spacing:2px;text-transform:uppercase}
+.cv .hint{font-size:13px;color:var(--mu);margin:20px 0 0;max-width:none}
+.active .card.a{animation:ri .9s var(--e) calc(.5s + var(--i)*.15s) backwards,fl 1.1s ease-out calc(.8s + var(--i)*.15s)}
+@keyframes fl{40%{box-shadow:0 0 38px rgba(255,215,106,.75);border-color:var(--g2)}}
+.tm{position:fixed;left:50%;bottom:calc(46px + env(safe-area-inset-bottom,0px));width:min(940px,86vw);height:6px;transform:translateX(-50%);background:rgba(212,175,55,.22);border-radius:3px;z-index:50}
+.tm .f{height:100%;border-radius:3px;background:linear-gradient(90deg,#8b0000,var(--g2));box-shadow:0 0 12px var(--g2);transition:width 1.1s cubic-bezier(.16,1,.3,1)}
+.tm .k{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:2px solid var(--g);background:#1a0d09;transition:.6s}
+.tm .k.on{background:var(--g2);box-shadow:0 0 14px var(--g2)}
+.tm .k i{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font-style:normal;text-align:center;font-size:11px;line-height:1.35;color:var(--mu);transition:.5s}
+.tm .k.up i{bottom:20px}.tm .k.dn i{top:20px}
+.tm .k i b{display:block;font-size:12px;color:var(--g)}.tm .k.on i{color:var(--tx)}.tm .k.on i b{color:var(--g2)}
+.tm .mk{position:absolute;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;display:grid;place-items:center;font-size:20px;color:var(--g2);text-shadow:0 0 14px var(--g2);transition:left 1.1s cubic-bezier(.16,1,.3,1)}
+@media(max-width:768px){.tm{display:none}}
+
+#sp{position:fixed;inset:0;z-index:7;pointer-events:none;background:radial-gradient(circle 280px at var(--mx,50%) var(--my,50%),rgba(255,215,106,.11),transparent 70%)}
+.drum.kick{animation:spin 90s linear infinite,pu 1.1s ease-out}
+@keyframes pu{40%{opacity:.3}}
+.slide.war::after{content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 130px rgba(255,59,48,.38);animation:wp 2.6s ease-in-out infinite alternate}
+@keyframes wp{from{opacity:.35}to{opacity:1}}
+.slide.cvr{overflow:hidden}
+.cv{position:relative}.cv>*{position:relative}
+.cv>.rays{position:absolute;left:50%;top:50%;width:900px;height:900px;margin:-450px 0 0 -450px;background:repeating-conic-gradient(rgba(255,215,106,.4) 0 4deg,transparent 4deg 12deg);-webkit-mask:radial-gradient(circle,#000,transparent 62%);mask:radial-gradient(circle,#000,transparent 62%);animation:spin 70s linear infinite;pointer-events:none;opacity:.3}
+#fl{position:fixed;inset:0;z-index:70;pointer-events:none;opacity:0}
+#fl.ok{background:radial-gradient(circle,rgba(52,199,89,.38),transparent 70%);animation:fh .7s}
+#fl.no{background:radial-gradient(circle,rgba(255,59,48,.42),transparent 70%);animation:fh .7s}
+@keyframes fh{from{opacity:1}to{opacity:0}}
+</style>
+</head>
+<body>
+<svg class="drum" id="dr" viewBox="-100 -100 200 200"></svg>
+<canvas id="bg"></canvas><canvas id="cf"></canvas>
+<div id="sp"></div><div id="fl"></div>
+<div id="pg"></div>
+<div class="hd"><div class="pill">★ LỊCH SỬ 9 • KẾT NỐI TRI THỨC</div><div class="pill"><span id="cn">01</span> / 20</div></div>
+<div id="st"><div id="sc"></div></div>
+<div id="lb" onclick="this.classList.remove('on')"><figure><img id="li" alt=""><figcaption id="lc"></figcaption></figure></div>
+<div class="tm" id="tm"></div>
+<div class="ts" id="ts"></div>
+<script>
+const $=i=>document.getElementById(i),st=$('st'),sc=$('sc'),K=['Khuynh hướng','Phương pháp','Kết quả'];
+const Q=[
+{q:'Ba tổ chức yêu nước cách mạng ra đời trong giai đoạn 1925 – 1928 là:',o:['Hội Việt Nam Cách mạng Thanh niên, Tâm tâm xã, Nam Đồng thư xã','Hội Phục Việt, Tâm tâm xã, Việt Nam Quốc dân đảng','Hội Việt Nam Cách mạng Thanh niên, Tân Việt Cách mạng đảng, Việt Nam Quốc dân đảng','Tân Việt Cách mạng đảng, Nam Đồng thư xã, Hội Phục Việt'],a:2,e:'Đó là Hội Việt Nam Cách mạng Thanh niên (6/1925), Việt Nam Quốc dân đảng (12/1927) và Tân Việt Cách mạng đảng (7/1928). Tâm tâm xã, Nam Đồng thư xã, Hội Phục Việt là cơ sở, tiền thân của các tổ chức này.'},
+{q:'Nhận định nào đúng về khuynh hướng và phương pháp hoạt động của các tổ chức?',o:['Hội VNCMTN theo dân chủ tư sản; Quốc dân đảng theo vô sản, “vô sản hoá”','Hội VNCMTN theo vô sản, huấn luyện cán bộ, “vô sản hoá”; Quốc dân đảng theo dân chủ tư sản, bạo động, ám sát','Cả ba tổ chức đều theo khuynh hướng dân chủ tư sản, chủ trương bạo động','Tân Việt theo vô sản ngay từ đầu; Quốc dân đảng theo dân chủ tư sản, ám sát'],a:1,e:'Hội Việt Nam Cách mạng Thanh niên theo khuynh hướng vô sản (huấn luyện cán bộ, “vô sản hoá”). Việt Nam Quốc dân đảng theo khuynh hướng dân chủ tư sản, chủ trương bạo động, ám sát cá nhân.'},
+{q:'Vì sao nói khuynh hướng vô sản ngày càng thắng thế trong phong trào dân tộc dân chủ ở Việt Nam?',o:['Vì thực dân Pháp ngừng đàn áp nên các tổ chức hoạt động tự do, phát triển mạnh','Vì khởi nghĩa Yên Bái thành công, Việt Nam Quốc dân đảng ngày càng lớn mạnh','Vì Hội VNCMTN bị giải tán sau vụ ám sát Bazin, Tân Việt lên thay vai trò lãnh đạo','Vì Yên Bái thất bại, Quốc dân đảng tan rã; Hội VNCMTN phát triển, Tân Việt chuyển theo vô sản'],a:3,e:'Khởi nghĩa Yên Bái thất bại và Quốc dân đảng tan rã cho thấy khuynh hướng dân chủ tư sản hoàn toàn bất lực. Trong khi đó, Hội Việt Nam Cách mạng Thanh niên phát triển và Tân Việt chuyển biến, chứng tỏ khuynh hướng vô sản ngày càng thắng thế.'}];
+const S=[
+{k:'cover'},
+{k:'cards',y:1925,t:'1. Bối cảnh lịch sử',l:'Giai đoạn 1925 – 1930: các tổ chức yêu nước cách mạng lần lượt ra đời.',c:[['🔥','Phong trào phát triển','Phong trào dân tộc dân chủ phát triển mạnh.'],['⛓️','Pháp tăng cường đàn áp','Thực dân Pháp tăng cường đàn áp phong trào.'],['🤝','Tổ chức ra đời','Người yêu nước đoàn kết, lập các tổ chức yêu nước cách mạng, thúc đẩy phong trào đấu tranh mạnh mẽ hơn.']]},
+{k:'cards',y:1925,t:'2. Hội Việt Nam Cách mạng Thanh niên',l:'Tổ chức đầu tiên ra đời năm 1925.',c:[['🚩','Thành lập','Tháng 6/1925, tại Quảng Châu (Trung Quốc), do <b>Nguyễn Ái Quốc</b> thành lập, trên cơ sở thanh niên ưu tú ở Trung Quốc (<i>Tâm tâm xã</i>) và từ trong nước sang.'],['🎯','Mục đích','Làm cách mạng dân tộc giành độc lập, sau đó làm cách mạng thế giới để đi đến xã hội cộng sản.'],['🎓','Hoạt động','Công bố Chương trình, Điều lệ; mở nhiều lớp huấn luyện cán bộ.']]},
+{k:'big',y:1927,t:'3. Tác phẩm Đường Kách mệnh (1927)',l:'Hội chuẩn bị lí luận cho cán bộ.',h:'Đường Kách mệnh (1927)',p:'Bài giảng của Nguyễn Ái Quốc tại các lớp huấn luyện cán bộ được tập hợp thành sách <i>Đường Kách mệnh</i> và bí mật đưa về nước.'},
+{k:'cards',y:1928,t:'4. Phong trào “vô sản hoá” (1928)',l:'Tiếp đó, Hội đưa cán bộ vào thực tiễn.',c:[['🏭','Phát động','Năm 1928, đưa cán bộ vào các đồn điền, hầm mỏ,... ở trong nước.'],['🔥','Mục đích','Rèn luyện, tuyên truyền cách mạng, nâng cao ý thức chính trị cho công nhân, tổ chức quần chúng đấu tranh.'],['🗺️','Kết quả','Trước 5/1929, có cơ sở ở cả ba kỳ, Trung Quốc, Xiêm,...; thành phần: thanh niên, trí thức, công nhân, nông dân. Góp phần truyền bá chủ nghĩa Mác – Lê-nin vào Việt Nam.']]},
+{k:'cards',y:1928,t:'5. Tân Việt Cách mạng đảng (7/1928)',l:'Cùng thời gian đó, Tân Việt hoạt động ở Trung Kỳ.',c:[['🌱','Thành lập','Tiền thân là <b>Hội Phục Việt</b>; tháng 7/1928 đổi tên thành Tân Việt Cách mạng đảng, hoạt động chủ yếu ở Trung Kỳ.'],['👥','Lực lượng','Trí thức trẻ, thanh niên, tư sản yêu nước.'],['📚','Hoạt động','Giới thiệu sách báo yêu nước tiến bộ, truyền bá chủ nghĩa Mác – Lê-nin; tổ chức đấu tranh của học sinh, tiểu thương, công nhân.']]},
+{k:'big',y:1929,t:'6. Sự chuyển biến của Tân Việt',l:'Dưới ảnh hưởng của Hội, Tân Việt thay đổi lập trường.',h:'Dân chủ tư sản ➔ Vô sản',p:'Ban đầu theo khuynh hướng dân chủ tư sản; về sau chuyển dần sang khuynh hướng vô sản. Nhiều đảng viên được cử sang dự các lớp huấn luyện của Hội.'},
+{k:'cards',y:1927,t:'7. Việt Nam Quốc dân đảng (12/1927)',l:'Bên cạnh đó, một tổ chức theo khuynh hướng khác ra đời.',c:[['🏛️','Thành lập & lực lượng','Tháng 12/1927, trên cơ sở một số thành viên Nam Đồng thư xã (<b>Nguyễn Thái Học, Phó Đức Chính</b>,...). Gồm tư sản dân tộc, binh lính Việt trong quân đội Pháp, viên chức, học sinh, thân hào, thân sĩ ở nông thôn,...'],['⚔️','Khuynh hướng & mục tiêu','Khuynh hướng <b>dân chủ tư sản</b>; mục tiêu đánh đuổi giặc Pháp, thiết lập dân quyền bằng <b>bạo động, ám sát cá nhân</b>.']]},
+{k:'big',y:1929,r:1,t:'8. Vụ ám sát Bazin (2/1929)',l:'Đầu năm 1929, Quốc dân đảng chịu tổn thất lớn.',h:'Đầu tháng 2/1929',p:'Việt Nam Quốc dân đảng ám sát tên trùm mộ phu Bazin (Ba-đanh); thực dân Pháp vây ráp lớn, nhiều cơ sở của đảng bị tan vỡ.'},
+{k:'big',y:1930,r:1,t:'9. Khởi nghĩa Yên Bái (9/2/1930)',l:'Quốc dân đảng tiến hành khởi nghĩa.',h:'Đêm 9/2/1930',p:'Khởi nghĩa nổ ra ở thị xã Yên Bái (nay thuộc Lào Cai), một số nơi ở Phú Thọ, sau đó ở Hải Dương (nay thuộc Hải Phòng), Thái Bình (nay thuộc Hưng Yên),... nhưng nhanh chóng bị thực dân Pháp đàn áp dã man.'},
+{k:'cmp3',y:1930,t:'10. Bảng so sánh ba tổ chức',l:'Nhìn lại ba tổ chức.',c:[['Hội Việt Nam Cách mạng Thanh niên','#d4af37',['Vô sản','Huấn luyện cán bộ, “vô sản hoá”','Góp phần truyền bá chủ nghĩa Mác – Lê-nin vào Việt Nam']],['Tân Việt Cách mạng đảng','#34c759',['Dân chủ tư sản, sau chuyển dần sang vô sản','Sách báo yêu nước tiến bộ, đấu tranh của học sinh, tiểu thương, công nhân','Chuyển biến lập trường chính trị theo hướng vô sản']],['Việt Nam Quốc dân đảng','#ff3b30',['Dân chủ tư sản','Bạo động, ám sát cá nhân','Yên Bái thất bại, tan rã nhanh chóng']]]},
+{k:'cmp2',y:1930,t:'11. Khuynh hướng vô sản ngày càng thắng thế',l:'Từ đó rút ra kết luận.',c:[['Dân chủ tư sản','#ff3b30','Khởi nghĩa Yên Bái thất bại và Quốc dân đảng tan rã nhanh chóng cho thấy khuynh hướng này đã hoàn toàn bất lực trước nhiệm vụ cứu nước.'],['Vô sản','#34c759','Sự phát triển của Hội Việt Nam Cách mạng Thanh niên và sự chuyển biến của Tân Việt chứng tỏ khuynh hướng vô sản ngày càng thắng thế.']]},
+{k:'q',n:0},{k:'a',n:0},{k:'q',n:1},{k:'a',n:1},{k:'q',n:2},{k:'a',n:2},
+{k:'sum',t:'Tóm tắt bài học',l:[['<b>Hội Việt Nam Cách mạng Thanh niên</b><br>6/1925 • Nguyễn Ái Quốc • Quảng Châu','Vô sản','Lớp huấn luyện, <i>Đường Kách mệnh</i> (1927), “vô sản hoá” (1928)','Cơ sở 3 kỳ, Trung Quốc, Xiêm; truyền bá chủ nghĩa Mác – Lê-nin'],['<b>Tân Việt Cách mạng đảng</b><br>7/1928 • tiền thân Hội Phục Việt • Trung Kỳ','Dân chủ tư sản ➔ chuyển dần sang vô sản','Sách báo yêu nước tiến bộ; đấu tranh của học sinh, tiểu thương, công nhân','Chuyển biến lập trường dưới ảnh hưởng của Hội'],['<b>Việt Nam Quốc dân đảng</b><br>12/1927 • Nguyễn Thái Học, Phó Đức Chính','Dân chủ tư sản','Bạo động, ám sát cá nhân: ám sát Bazin (2/1929), khởi nghĩa Yên Bái (9/2/1930)','Thất bại, tan rã nhanh chóng']]},
+{k:'end'}];
+const IMG={
+/* Dán link ảnh theo số slide: 2:['https://.../anh.jpg','Chú thích ảnh'], */
+};
+const thm=i=>{const m=IMG[i+1];return m&&m[0]?`<div class="th" onclick="openImg(${i})"><img src="${m[0]}" onerror="this.parentNode.remove()"><span>🖼 Ảnh tư liệu</span></div>`:''};
+function openImg(i){const m=IMG[i+1];if(!m||!m[0])return;$('li').src=m[0];$('lc').textContent=m[1]||'';$('lb').classList.add('on')}
+const ttl=t=>`<h2 class="ti">${t.split(' ').map((w,j)=>`<span class="w" style="--j:${j}">${w}</span>`).join(' ')}</h2>`;
+const wm=y=>y?`<div class="wm cnt" data-c="${y}">${y}</div>`:'';
+const op=(q,r)=>q.o.map((x,i)=>`<button class="opt${r&&i==q.a?' ok':''}" data-i="${i}"${r?' disabled':''}><span class="lt">${'ABCD'[i]}</span>${x}</button>`).join('');
+const R={
+cover:()=>`<div class="cv"><div class="rays"></div><p class="eb a">Chương 2 • Việt Nam từ năm 1918 đến năm 1945</p><p class="eb2 a">Bài 5 • Phong trào dân tộc dân chủ trong những năm 1918 – 1930</p>${ttl('Phần 4: Sự ra đời của các tổ chức yêu nước cách mạng')}<div class="yr a"><b class="cnt" data-c="1925">1925</b><i>➔</i><b class="cnt" data-c="1930">1930</b></div></div>`,
+cards:s=>wm(s.y)+ttl(s.t)+`<div class="g g${s.c.length}">${s.c.map(([i,t,p])=>`<div class="card a"><div class="ic">${i}</div><h3>${t}</h3><p>${p}</p></div>`).join('')}</div>`,
+big:s=>wm(s.y)+ttl(s.t)+`<div class="card big a${s.r?' red':''}"><div class="hl">${s.h}</div><p>${s.p}</p></div>`,
+cmp3:s=>wm(s.y)+ttl(s.t)+`<div class="g g3">${s.c.map(([n,c,v])=>`<div class="card a" style="border-top:4px solid ${c}"><h3 style="color:${c}">${n}</h3>${v.map((x,i)=>`<small>${K[i]}</small><p>${x}</p>`).join('')}</div>`).join('')}</div>`,
+cmp2:s=>wm(s.y)+ttl(s.t)+`<div class="g g2">${s.c.map(([n,c,p],i)=>`<div class="card a ${i?'r':'l'}" style="border-top:4px solid ${c}"><h3 style="color:${c};font-size:22px">${n}</h3><p>${p}</p></div>`).join('')}</div>`,
+q:s=>{const q=Q[s.n];return ttl('Câu hỏi củng cố #'+(s.n+1))+`<p class="qq a">${q.q}</p><div class="opts a" data-n="${s.n}">${op(q)}</div><div class="timer"><i></i></div>`},
+a:s=>{const q=Q[s.n];return ttl('Đáp án & giải thích #'+(s.n+1))+`<p class="qq a">${q.q}</p><div class="opts rev a">${op(q,1)}</div><p class="pk a"></p><div class="card a" style="border-left:5px solid var(--ok)"><p><b>Đáp án đúng: ${'ABCD'[q.a]}.</b> ${q.e}</p></div>`},
+sum:s=>ttl(s.t)+`<div class="tw a"><table><tr><th>Tổ chức</th><th>Khuynh hướng</th><th>Hoạt động chính</th><th>Kết cục</th></tr>${s.l.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</table></div><div class="tip a">✅ <b>Kết luận:</b> Yên Bái thất bại ➔ khuynh hướng dân chủ tư sản hoàn toàn bất lực; Hội phát triển, Tân Việt chuyển biến ➔ khuynh hướng vô sản ngày càng thắng thế.</div>`,
+end:()=>`<div class="cv"><div class="rays"></div>${ttl('Cảm ơn thầy cô và các bạn đã lắng nghe!')}<p class="score a"></p><p class="hint a">♪ Nhạc nhẹ đang phát • nhấn M để tắt</p></div>`};
+S.forEach((s,i)=>{const d=document.createElement('section');d.className='slide'+(s.r?' war':'')+(s.k=='cover'||s.k=='end'?' cvr':'');d.innerHTML=R[s.k](s).replace('</h2>','</h2>'+(s.l?`<p class="lead a">${s.l}</p>`:''))+thm(i);sc.appendChild(d)});
+const E=[...sc.children],picks=[];let cur=0;
+E.forEach(e=>e.querySelectorAll('.a').forEach((x,i)=>x.style.setProperty('--i',i)));
+const CL='inset(-80px round 20px)',EZ='cubic-bezier(.16,1,.3,1)';
+const TS={
+dolly:{f:'scale(2.6)',o:'scale(.55)'},
+slit:{f:'scale(1.06)',cf:'inset(50% 0 round 20px)',o:'scale(.9)'},
+door:{f:'rotateY(-95deg)',g:'0% 50%',o:'translateX(8%) scale(.92)'},
+page:{f:'rotateY(80deg)',g:'100% 50%',o:'rotateY(-35deg) translateX(-10%)'},
+rise:{f:'translateY(110%)',o:'translateY(-35%) scale(.92)',e:'cubic-bezier(.34,1.45,.64,1)'},
+ripple:{f:'scale(.9)',cf:'circle(0% at 50% 50%)',ce:'circle(150% at 50% 50%)',o:'scale(1.18)'},
+diag:{f:'translateX(-6%)',cf:'polygon(-20% -20%,-20% -20%,-40% 120%,-40% 120%)',ce:'polygon(-20% -20%,140% -20%,120% 120%,-40% 120%)',o:'translateX(6%) scale(.96)'},
+tumble:{f:'rotateX(-85deg) translateY(-20%)',g:'50% 0%',o:'rotateX(55deg) translateY(30%)'},
+drop:{f:'translateY(-115%) rotate(-5deg)',o:'translateY(45%) scale(.9)',e:'cubic-bezier(.3,1.6,.5,1)'},
+scroll:{f:'scale(.96)',cf:'inset(0 50% round 20px)',o:'scale(1.05)'},
+flip:{f:'rotateY(95deg)',g:'100% 50%',o:'rotateY(-60deg) scale(.9)'}};
+const MAP='dolly slit door page rise ripple diag tumble drop dolly scroll flip ripple slit diag page tumble dolly scroll dolly'.split(' ');
+let zm=1;function fit(){sc.style.setProperty('--k',Math.max(.3,Math.min((innerWidth-40)/1100,(innerHeight-190)/640,1.8))*zm)}fit();
+function zoom(d){zm=d?Math.min(1.6,Math.max(.6,+(zm+d).toFixed(2))):1;fit();toast('🔍 '+Math.round(zm*100)+'%')}addEventListener('resize',fit);
+function ap(w,T){[['--f',T.f],['--cf',T.cf||CL],['--ce',T.ce||CL],['--e',T.e||EZ]].forEach(([k,v])=>w.style.setProperty(k,v));w.style.transformOrigin=T.g||'50% 50%'}
+function go(n){
+if(n===cur||n<0||n>=E.length)return;
+const o=E[cur],w=E[n];
+ap(w,TS[MAP[n]]);o.style.setProperty('--o',TS[MAP[cur]].o);o.style.transformOrigin='50% 50%';
+o.classList.remove('active');o.classList.add('leave');setTimeout(()=>o.classList.remove('leave'),620);
+w.classList.remove('leave');w.classList.add('active');cur=n;ui();sfx([0,9,19].includes(n)?'big':'go');clinks(w.querySelectorAll('.a').length);music(n==19);kickfx()}
+function count(e){const c=+e.dataset.c,s=c-14,t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1400);e.textContent=Math.round(s+(c-s)*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0)}
+function ui(){
+const w=E[cur],s=S[cur],y=s.y||(cur?1930:1925);
+$('pg').style.width=(cur+1)/E.length*100+'%';$('cn').textContent=String(cur+1).padStart(2,'0');
+tmUpdate(DT[cur]);
+w.querySelectorAll('.cnt').forEach(count);
+const sc=w.querySelector('.score');if(sc)sc.textContent=`Bạn trả lời đúng ${Q.filter((q,i)=>picks[i]===q.a).length}/${Q.length} câu củng cố 🎉`;
+const pk=w.querySelector('.pk');if(pk){const q=Q[s.n],p=picks[s.n];pk.textContent=p==null?'Bạn chưa chọn đáp án ở câu này.':p==q.a?'✔ Bạn đã chọn đúng!':`✘ Bạn đã chọn ${'ABCD'[p]} — chưa chính xác.`}}
+const EV=[[1925.45,'6/1925','Hội VNCMTN'],[1927.95,'12/1927','VN Quốc dân đảng'],[1928.55,'7/1928','Tân Việt'],[1929.1,'2/1929','Ám sát Bazin'],[1930.1,'9/2/1930','Khởi nghĩa Yên Bái']];
+const DT=[1925,1925.2,1925.45,1927.3,1928.2,1928.55,1929,1927.95,1929.1,1930.1,1930.1,1930.1,1930.1,1930.1,1930.1,1930.1,1930.1,1930.1,1930.1,1930.1],pc=d=>(d-1924.8)/5.6*100;
+$('tm').innerHTML='<div class="f" id="tf"></div>'+EV.map(([d,a,b],i)=>`<div class="k ${i%2?'dn':'up'}" data-d="${d}" style="left:${pc(d)}%"><i><b>${a}</b>${b}</i></div>`).join('')+'<div class="mk" id="mk">★</div>';
+function tmUpdate(d){$('tf').style.width=pc(d)+'%';$('mk').style.left=pc(d)+'%';document.querySelectorAll('.tm .k').forEach(k=>k.classList.toggle('on',+k.dataset.d<=d+.01))}
+ap(E[0],TS.dolly);E[0].classList.add('active');ui();
+/* Quiz */
+function fin(o,i,b){const n=+o.dataset.n,q=Q[n];o.querySelectorAll('.opt').forEach(x=>x.disabled=true);o.nextElementSibling.classList.add('done');
+if(i===null){o.children[q.a].classList.add('ok');sfx('tick');return}
+picks[n]=i;if(i===q.a){b.classList.add('ok');sfx('ok');flash('ok');conf()}else{b.classList.add('no','sh');sfx('no');flash('no')}}
+st.addEventListener('click',e=>{const b=e.target.closest('.opt');if(b&&!b.disabled)fin(b.parentElement,+b.dataset.i,b)});
+st.addEventListener('animationend',e=>{if(!e.target.matches('.timer i'))return;const o=e.target.parentElement.previousElementSibling;if(!o.querySelector('.opt:disabled'))fin(o,null)});
+/* 3D tilt */
+st.addEventListener('pointermove',e=>{const c=e.target.closest('.card');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*10+'deg');c.style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*10+'deg')});
+st.addEventListener('pointerout',e=>{const c=e.target.closest('.card');if(c){c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')}});
+/* Điều hướng */
+addEventListener('keydown',e=>{const k=e.key;
+if([' ','ArrowRight','PageDown'].includes(k)){e.preventDefault();go(cur+1)}
+else if(['ArrowLeft','PageUp'].includes(k)){e.preventDefault();go(cur-1)}
+else if(k=='ArrowUp'){e.preventDefault();zoom(.1)}
+else if(k=='ArrowDown'){e.preventDefault();zoom(-.1)}
+else if(k=='Home')go(0);else if(k=='End')go(E.length-1);
+else if(k=='0')zoom(0);
+else if(k=='m'||k=='M')mute();
+else if(k=='s'||k=='S')stheme();
+else if(k=='i'||k=='I')openImg(cur);
+else if(k=='Escape')$('lb').classList.remove('on');
+else if(k=='f'||k=='F')document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()});
+function toast(m){const e=$('ts');e.textContent=m;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),1300)}
+let tx=0;addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)go(cur+(d<0?1:-1))});
+/* Âm thanh + pháo giấy */
+let ac,nb,mg,muted=0;
+function mute(){muted^=1;toast(muted?'🔇 Đã tắt âm thanh':'🔊 Đã bật âm thanh');if(muted)music(0);else if(cur==19)music(1)}
+function AC(){if(!ac){ac=new AudioContext();nb=ac.createBuffer(1,ac.sampleRate,ac.sampleRate);const d=nb.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;
+mg=ac.createGain();mg.gain.value=.8;const lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=5500;const cp=ac.createDynamicsCompressor();mg.connect(lp);lp.connect(cp);cp.connect(ac.destination)}
+if(ac.state=='suspended')ac.resume();return ac}
+function tone(f,t,d,v,f2){const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t+d);g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(mg);o.start(t);o.stop(t+d+.05)}
+function air(t,d,v,f1,f2){const s=ac.createBufferSource(),b=ac.createBiquadFilter(),g=ac.createGain();s.buffer=nb;b.type='bandpass';b.Q.value=.6;b.frequency.setValueAtTime(f1,t);b.frequency.exponentialRampToValueAtTime(f2,t+d);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(v,t+d*.45);g.gain.exponentialRampToValueAtTime(.001,t+d);s.connect(b);b.connect(g);g.connect(mg);s.start(t);s.stop(t+d+.05)}
+let sth=0,vi=0,mus,mg2;
+function stheme(){sth^=1;toast(sth?'Âm thanh: điện ảnh':'Âm thanh: công nghệ');sfx('go')}
+function glide(t,f1,f2,d,v){const g=ac.createGain(),lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=3200;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(v,t+d*.4);g.gain.exponentialRampToValueAtTime(.001,t+d);g.connect(lp);lp.connect(mg);[0,7].forEach(c=>{const o=ac.createOscillator();o.type='sine';o.detune.value=c;o.frequency.setValueAtTime(f1,t);o.frequency.exponentialRampToValueAtTime(f2,t+d);o.connect(g);o.start(t);o.stop(t+d+.05)})}
+function sfx(k){if(muted)return;try{AC();const t=ac.currentTime;
+if(!sth){
+if(k=='go'){const v=vi++%3;if(v==0){glide(t,330,880,.55,.07);air(t,.6,.05,2500,7000);tone(1760,t+.3,.18,.025)}else if(v==1){air(t,.7,.07,6000,1200);glide(t,880,440,.5,.06);tone(1320,t+.05,.15,.03)}else{air(t,.6,.08,500,3500);glide(t,220,660,.5,.07);tone(2093,t+.35,.12,.025)}}
+if(k=='big'){glide(t,110,660,1.1,.1);glide(t,165,990,1.1,.05);air(t,1.2,.1,800,6000);tone(55,t+.4,1,.35,35)}
+if(k=='ok'){[660,880,1320].forEach((f,i)=>{tone(f,t+i*.08,.5,.1);tone(f*2,t+i*.08,.3,.02)})}
+if(k=='no'){glide(t,330,130,.4,.1);tone(70,t,.3,.3,45)}
+if(k=='tick'){tone(110,t,.3,.4,48)}
+}else{
+if(k=='go'){air(t,.8,.16,350,1800);tone(80,t+.1,.45,.35,45)}
+if(k=='big'){air(t,1.4,.26,160,2400);tone(58,t+.25,1.3,.6,32);tone(116,t+.25,.9,.12,60)}
+if(k=='ok'){[523,659,784,1047].forEach((f,i)=>{tone(f,t+i*.07,.6,.16);tone(f*1.5,t+i*.07,.35,.04)});air(t,.35,.05,2000,5000)}
+if(k=='no'){tone(220,t,.4,.3,110);tone(90,t,.35,.4,50);air(t,.25,.08,500,150)}
+if(k=='tick'){tone(130,t,.3,.5,50)}}
+}catch(e){}}
+function clink(t,f){tone(f,t,.35,.05);tone(f*2.01,t,.18,.025);tone(f*3.02,t,.08,.012)}
+function clinks(n){if(muted)return;try{AC();const t=ac.currentTime,P=[1175,1319,1568,1760,2093];for(let i=0;i<Math.min(n,6);i++)clink(t+.65+i*.15,P[i%5])}catch(e){}}
+function pad(f,t,d,v){const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(v,t+1.6);g.gain.linearRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(mg2);o.start(t);o.stop(t+d+.1)}
+function pluck(f,t,v){const g=ac.createGain();g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(v,t+.01);g.gain.exponentialRampToValueAtTime(.001,t+2.4);g.connect(mg2);[['triangle',f,1],['sine',f*2,.3]].forEach(([ty,fr,m])=>{const o=ac.createOscillator(),h=ac.createGain();o.type=ty;o.frequency.value=fr;h.gain.value=m;o.connect(h);h.connect(g);o.start(t);o.stop(t+2.5)})}
+function music(on){clearInterval(mus);if(mg2&&ac){mg2.gain.cancelScheduledValues(ac.currentTime);mg2.gain.setValueAtTime(Math.max(.0001,mg2.gain.value),ac.currentTime);mg2.gain.linearRampToValueAtTime(.0001,ac.currentTime+1.5)}
+if(!on||muted)return;try{AC();const m=ac.createGain(),dl=ac.createDelay(),fb=ac.createGain();m.gain.setValueAtTime(.0001,ac.currentTime);m.gain.linearRampToValueAtTime(1,ac.currentTime+3);dl.delayTime.value=.45;fb.gain.value=.4;m.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(mg);m.connect(mg);mg2=m;
+const ch=[[146.83,220,293.66,369.99],[123.47,185,246.94,293.66],[98,146.83,196,246.94],[110,164.81,220,277.18]],pen=[587.33,659.25,739.99,880,987.77,1174.66];let b=0;
+const step=()=>{const t=ac.currentTime+.05;ch[b%4].forEach(f=>pad(f,t,5.6,.03));for(let i=0;i<4;i++)if(Math.random()<.75)pluck(pen[Math.random()*pen.length|0]*(Math.random()<.2?.5:1),t+i*1.3+Math.random()*.2,.06);b++};
+step();mus=setInterval(step,5200)}catch(e){}}
+function conf(){const c=$('cf'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const P=Array.from({length:110},()=>({x:c.width/2,y:c.height*.6,vx:(Math.random()-.5)*18,vy:Math.random()*-16-2,s:Math.random()*8+4,l:100,c:['#f4c430','#34c759','#ff3b30','#fff'][Math.random()*4|0]}));
+(function r(){x.clearRect(0,0,c.width,c.height);let a=0;P.forEach(p=>{if(p.l>0){a=1;p.x+=p.vx;p.y+=p.vy;p.vy+=.4;p.l-=1.2;x.fillStyle=p.c;x.fillRect(p.x,p.y,p.s,p.s*.6)}});if(a)requestAnimationFrame(r)})()}
+/* Nền: trống đồng xoay + bụi vàng */
+let h='';for(let i=0;i<16;i++)h+=`<line y1="-24" y2="-46" transform="rotate(${i*22.5})"/>`;
+$('dr').innerHTML=h+'<circle r="94" stroke-dasharray="2 5"/><circle r="84"/><circle r="72" stroke-dasharray="9 4"/><circle r="56"/><circle r="22"/><circle r="12" stroke-width="3"/>';
+const bc=$('bg'),bx=bc.getContext('2d');function rs(){bc.width=innerWidth;bc.height=innerHeight}rs();addEventListener('resize',rs);
+let SP=[];
+function burst(){for(let i=0;i<54;i++){const a=Math.random()*6.283,v=2+Math.random()*7;SP.push({x:innerWidth/2,y:innerHeight/2,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,r:Math.random()*2+1})}}
+function kickfx(){const d=$('dr');d.classList.remove('kick');void d.getBoundingClientRect();d.classList.add('kick');burst()}
+function flash(c){const e=$('fl');e.className='';void e.offsetWidth;e.className=c}
+addEventListener('pointermove',e=>{const r=document.documentElement.style;r.setProperty('--mx',e.clientX+'px');r.setProperty('--my',e.clientY+'px')});
+const ps=Array.from({length:60},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*2+.4,vx:(Math.random()-.5)*.3,vy:-Math.random()*.5-.1,a:Math.random()*6}));
+(function L(){bx.clearRect(0,0,bc.width,bc.height);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.a+=.03;if(p.y<0){p.y=bc.height;p.x=Math.random()*bc.width}bx.fillStyle=`rgba(244,196,48,${.15+.35*Math.abs(Math.sin(p.a))})`;bx.beginPath();bx.arc(p.x,p.y,p.r,0,7);bx.fill()});SP.forEach(q=>{q.x+=q.vx;q.y+=q.vy;q.vx*=.97;q.vy=q.vy*.97+.04;q.l-=.017;bx.fillStyle=`rgba(255,215,106,${Math.max(0,q.l)})`;bx.beginPath();bx.arc(q.x,q.y,q.r,0,7);bx.fill()});SP=SP.filter(q=>q.l>0);requestAnimationFrame(L)})();
+</script>
+</body>
+</html>
