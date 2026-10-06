@@ -1,1066 +1,1349 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Bài 5 – Sự ra đời của các tổ chức yêu nước cách mạng</title>
+    <title>Lịch sử 9 - Bài 5 Phần 4</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+        name="description"
+        content="Bài thuyết trình Lịch sử 9 - Sự ra đời của các tổ chức yêu nước cách mạng"
+    >
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
-    rel="stylesheet"
-  >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Nền -->
-  <div class="background"></div>
-  <div class="background-grid"></div>
-
-  <!-- Thanh tiến trình -->
-  <div id="progressBar"></div>
-
-  <!-- Header -->
-  <header class="top-bar">
-
-    <div class="course-tag">
-      LỊCH SỬ 9
-      <span>•</span>
-      BÀI 5
+    <!-- =========================
+         BACKGROUND
+    ========================== -->
+    <div class="background">
+        <div class="bg-grid"></div>
+        <div class="bg-glow glow-1"></div>
+        <div class="bg-glow glow-2"></div>
+        <div id="particles"></div>
     </div>
 
-    <div class="slide-count">
-      <span id="currentSlideNum">01</span>
-      <span class="slash">/</span>
-      <span>20</span>
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="topbar">
+
+        <div class="brand">
+            <span class="brand-dot"></span>
+            <span>LỊCH SỬ 9</span>
+            <span class="brand-separator">•</span>
+            <span>BÀI 5 — PHẦN 4</span>
+        </div>
+
+        <div class="slide-counter">
+            <span id="currentSlide">01</span>
+            <span class="counter-line"></span>
+            <span id="totalSlides">20</span>
+        </div>
+
+    </header>
+
+    <!-- =========================
+         PROGRESS
+    ========================== -->
+    <div class="progress-container">
+        <div id="progressBar" class="progress-bar"></div>
     </div>
 
-  </header>
+    <!-- =========================
+         PRESENTATION
+    ========================== -->
+    <main id="slideViewport" class="presentation">
+
+        <!-- =========================================
+             SLIDE 1
+        ========================================== -->
+        <section class="slide active cover-slide" data-label="Mở đầu">
+
+            <div class="cover-left">
+
+                <div class="eyebrow reveal">
+                    BÀI THUYẾT TRÌNH LỊCH SỬ 9
+                </div>
+
+                <h1 class="cover-title reveal">
+                    SỰ RA ĐỜI CỦA
+                    <span>CÁC TỔ CHỨC</span>
+                    YÊU NƯỚC CÁCH MẠNG
+                </h1>
+
+                <p class="cover-subtitle reveal">
+                    Giai đoạn <strong>1925 – 1930</strong>
+                </p>
+
+                <div class="cover-info reveal">
+                    <div>
+                        <span>CHỦ ĐỀ</span>
+                        <strong>Bài 5 — Việt Nam từ năm 1918 đến năm 1945</strong>
+                    </div>
+
+                    <div>
+                        <span>LỚP</span>
+                        <strong>9A6</strong>
+                    </div>
+                </div>
 
-
-  <!-- Khu vực slide -->
-  <main id="app">
-
-    <div id="slideViewport">
-
-
-      <!-- ==================== SLIDE 1 ==================== -->
-
-      <section class="slide active cover-slide">
-
-        <div class="cover-content">
-
-          <div class="small-label">
-            LỊCH SỬ VÀ ĐỊA LÍ 9
-          </div>
-
-          <h1>
-            SỰ RA ĐỜI CỦA CÁC
-            <span>TỔ CHỨC YÊU NƯỚC CÁCH MẠNG</span>
-          </h1>
-
-          <p class="cover-period">
-            Giai đoạn 1925 – 1930
-          </p>
-
-          <div class="cover-info">
-
-            <p>
-              <strong>Nhóm thực hiện:</strong>
-              Nhóm 9A
-            </p>
-
-            <p>
-              <strong>Bộ sách:</strong>
-              Kết nối tri thức với cuộc sống
-            </p>
-
-          </div>
-
-          <button class="primary-btn" onclick="nextSlide()">
-            Bắt đầu →
-          </button>
-
-        </div>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 2 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">01</div>
-
-        <h2 class="slide-title">
-          Vì sao các tổ chức yêu nước ra đời?
-        </h2>
-
-        <p class="intro-text">
-          Trong những năm 1920, phong trào dân tộc dân chủ ở Việt Nam
-          phát triển ngày càng mạnh.
-        </p>
-
-        <div class="info-grid two">
-
-          <article class="info-card">
-
-            <div class="card-number">01</div>
-
-            <h3>
-              Phong trào phát triển
-            </h3>
-
-            <p>
-              Công nhân, trí thức, thanh niên và nhiều tầng lớp khác
-              tham gia các hoạt động yêu nước.
-            </p>
-
-          </article>
-
-
-          <article class="info-card">
-
-            <div class="card-number">02</div>
-
-            <h3>
-              Cần có tổ chức
-            </h3>
-
-            <p>
-              Những người yêu nước từng bước tập hợp lực lượng và
-              thành lập các tổ chức để hoạt động có tổ chức hơn.
-            </p>
-
-          </article>
-
-        </div>
-
-        <div class="note-box">
-          <strong>Ý chính:</strong>
-          Sự phát triển của phong trào và sự đàn áp của thực dân Pháp
-          đã thúc đẩy sự ra đời của các tổ chức yêu nước cách mạng.
-        </div>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 3 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">02</div>
-
-        <h2 class="slide-title">
-          Hội Việt Nam Cách mạng Thanh niên
-        </h2>
-
-        <div class="date-highlight">
-          <span>6/1925</span>
-          <small>Quảng Châu – Trung Quốc</small>
-        </div>
-
-        <div class="info-grid two">
-
-          <article class="info-card">
-
-            <h3>Người thành lập</h3>
-
-            <p>
-              Nguyễn Ái Quốc thành lập Hội tại Quảng Châu,
-              trên cơ sở lựa chọn những thanh niên yêu nước đang hoạt động
-              ở Trung Quốc và từ trong nước sang.
-            </p>
-
-          </article>
-
-
-          <article class="info-card">
-
-            <h3>Mục đích</h3>
-
-            <p>
-              Tập hợp thanh niên yêu nước, đào tạo cán bộ và
-              chuẩn bị lực lượng cho cách mạng.
-            </p>
-
-          </article>
-
-        </div>
-
-        <div class="key-line">
-          Đây là một trong những tổ chức có vai trò quan trọng
-          trong việc truyền bá chủ nghĩa Mác – Lê-nin vào Việt Nam.
-        </div>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 4 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">03</div>
-
-        <h2 class="slide-title">
-          Những hoạt động chính của Hội
-        </h2>
-
-        <div class="timeline">
-
-          <div class="timeline-item">
-
-            <div class="timeline-date">1925</div>
-
-            <div>
-              <h3>Mở lớp huấn luyện</h3>
-
-              <p>
-                Nguyễn Ái Quốc trực tiếp đào tạo những thanh niên
-                yêu nước tại Quảng Châu.
-              </p>
             </div>
 
-          </div>
+            <div class="cover-right reveal">
 
+                <div class="timeline-cover">
 
-          <div class="timeline-item">
+                    <div class="timeline-line"></div>
 
-            <div class="timeline-date">1927</div>
+                    <div class="timeline-point">
+                        <b>1925</b>
+                        <span>Hội VN CMTN</span>
+                    </div>
 
-            <div>
-              <h3>Đường Kách mệnh</h3>
+                    <div class="timeline-point">
+                        <b>1927</b>
+                        <span>VNQDĐ</span>
+                    </div>
 
-              <p>
-                Các bài giảng của Nguyễn Ái Quốc được tập hợp thành
-                sách và bí mật đưa về nước.
-              </p>
+                    <div class="timeline-point">
+                        <b>1928</b>
+                        <span>Tân Việt</span>
+                    </div>
+
+                    <div class="timeline-point">
+                        <b>1930</b>
+                        <span>Yên Bái</span>
+                    </div>
+
+                </div>
+
+                <div class="cover-note">
+                    <span>THUYẾT TRÌNH</span>
+                    <strong>Nhóm 9A6</strong>
+                </div>
+
             </div>
 
-          </div>
+        </section>
 
 
-          <div class="timeline-item">
+        <!-- =========================================
+             SLIDE 2
+        ========================================== -->
+        <section class="slide" data-label="Bối cảnh">
 
-            <div class="timeline-date">1928</div>
+            <div class="section-number reveal">01</div>
 
-            <div>
-              <h3>“Vô sản hoá”</h3>
-
-              <p>
-                Cán bộ đi vào các đồn điền, hầm mỏ và nơi có công nhân
-                để rèn luyện, tuyên truyền và tổ chức quần chúng.
-              </p>
+            <div class="slide-heading reveal">
+                <span>BƯỚC VÀO VẤN ĐỀ</span>
+                <h2>Bối cảnh lịch sử</h2>
             </div>
 
-          </div>
+            <div class="context-layout">
+
+                <div class="context-main reveal">
+
+                    <div class="quote-mark">“</div>
+
+                    <p class="large-text">
+                        Trước sự phát triển của phong trào
+                        <strong>dân tộc dân chủ</strong> và sự tăng cường
+                        đàn áp của thực dân Pháp, những người yêu nước
+                        đã đoàn kết, thành lập nên các
+                        <strong>tổ chức yêu nước cách mạng.</strong>
+                    </p>
+
+                </div>
+
+                <div class="context-side">
+
+                    <div class="info-card reveal">
+                        <span class="card-number">01</span>
+                        <h3>Phong trào phát triển</h3>
+                        <p>
+                            Phong trào dân tộc dân chủ ngày càng phát triển
+                            trong xã hội Việt Nam.
+                        </p>
+                    </div>
+
+                    <div class="info-card reveal">
+                        <span class="card-number">02</span>
+                        <h3>Pháp tăng cường đàn áp</h3>
+                        <p>
+                            Thực dân Pháp tăng cường các hoạt động đàn áp
+                            phong trào đấu tranh.
+                        </p>
+                    </div>
+
+                    <div class="info-card highlight-card reveal">
+                        <span class="card-number">03</span>
+                        <h3>Các tổ chức ra đời</h3>
+                        <p>
+                            Hoạt động của các tổ chức góp phần thúc đẩy
+                            phong trào đấu tranh mạnh mẽ hơn.
+                        </p>
+                    </div>
+
+                </div>
 
-        </div>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 5 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">04</div>
-
-        <h2 class="slide-title">
-          Phong trào “vô sản hoá”
-        </h2>
-
-        <div class="big-quote">
-          “Đi vào thực tế để rèn luyện và tuyên truyền cách mạng.”
-        </div>
-
-        <div class="info-grid three">
-
-          <article class="simple-card">
-            <span>01</span>
-            <h3>Đi vào nơi lao động</h3>
-            <p>
-              Cán bộ đến các đồn điền, hầm mỏ và nơi tập trung công nhân.
-            </p>
-          </article>
-
-          <article class="simple-card">
-            <span>02</span>
-            <h3>Rèn luyện cán bộ</h3>
-            <p>
-              Cán bộ có điều kiện hiểu hơn về cuộc sống và tình cảnh
-              của người lao động.
-            </p>
-          </article>
-
-          <article class="simple-card">
-            <span>03</span>
-            <h3>Tuyên truyền cách mạng</h3>
-            <p>
-              Góp phần nâng cao ý thức chính trị và tổ chức công nhân
-              tham gia đấu tranh.
-            </p>
-          </article>
-
-        </div>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 6 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">05</div>
-
-        <h2 class="slide-title">
-          Tân Việt Cách mạng đảng
-        </h2>
-
-        <div class="date-highlight">
-          <span>7/1928</span>
-          <small>Đổi tên từ Hội Phục Việt</small>
-        </div>
-
-        <div class="info-grid two">
-
-          <article class="info-card">
-
-            <h3>Lực lượng tham gia</h3>
-
-            <p>
-              Chủ yếu là trí thức trẻ, thanh niên và một số tư sản yêu nước.
-              Tổ chức hoạt động chủ yếu ở Trung Kì.
-            </p>
-
-          </article>
-
-          <article class="info-card">
-
-            <h3>Hoạt động</h3>
-
-            <p>
-              Giới thiệu sách báo yêu nước tiến bộ và tham gia tổ chức
-              một số cuộc đấu tranh của học sinh, tiểu thương, công nhân.
-            </p>
-
-          </article>
-
-        </div>
-
-        <div class="note-box">
-          Ban đầu Tân Việt theo khuynh hướng dân chủ tư sản,
-          sau đó dần chuyển sang khuynh hướng vô sản.
-        </div>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 7 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">06</div>
-
-        <h2 class="slide-title">
-          Sự chuyển biến của Tân Việt
-        </h2>
-
-        <div class="change-flow">
-
-          <div class="change-box">
-            <small>Ban đầu</small>
-            <strong>Dân chủ tư sản</strong>
-          </div>
-
-          <div class="arrow">→</div>
-
-          <div class="change-box highlight">
-            <small>Dưới ảnh hưởng của Hội Thanh niên</small>
-            <strong>Tiếp thu Mác – Lê-nin</strong>
-          </div>
-
-          <div class="arrow">→</div>
-
-          <div class="change-box">
-            <small>Về sau</small>
-            <strong>Chuyển dần sang vô sản</strong>
-          </div>
-
-        </div>
-
-        <p class="center-text">
-          Một số đảng viên Tân Việt được cử sang Quảng Châu
-          dự các lớp huấn luyện của Hội Việt Nam Cách mạng Thanh niên.
-        </p>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 8 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">07</div>
-
-        <h2 class="slide-title">
-          Việt Nam Quốc dân đảng
-        </h2>
-
-        <div class="date-highlight">
-          <span>12/1927</span>
-          <small>Hà Nội</small>
-        </div>
-
-        <div class="info-grid two">
-
-          <article class="info-card">
-
-            <h3>Thành lập</h3>
-
-            <p>
-              Được thành lập trên cơ sở hạt nhân là một số thành viên
-              của Nam Đồng thư xã, tiêu biểu như Nguyễn Thái Học,
-              Phó Đức Chính,...
-            </p>
-
-          </article>
-
-          <article class="info-card">
-
-            <h3>Khuynh hướng</h3>
-
-            <p>
-              Theo khuynh hướng cách mạng dân chủ tư sản,
-              với mục tiêu đánh đuổi thực dân Pháp và thiết lập dân quyền.
-            </p>
-
-          </article>
-
-        </div>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 9 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">08</div>
-
-        <h2 class="slide-title">
-          Hoạt động của Việt Nam Quốc dân đảng
-        </h2>
-
-        <div class="method-box">
-
-          <div>
-            <span class="method-number">01</span>
-
-            <h3>Chủ trương</h3>
-
-            <p>
-              Dùng bạo động để giành chính quyền.
-            </p>
-          </div>
-
-
-          <div>
-            <span class="method-number">02</span>
-
-            <h3>Phương pháp</h3>
-
-            <p>
-              Có hoạt động ám sát cá nhân và chuẩn bị khởi nghĩa vũ trang.
-            </p>
-          </div>
-
-
-          <div>
-            <span class="method-number">03</span>
-
-            <h3>Khó khăn</h3>
-
-            <p>
-              Lực lượng chưa mạnh và bị thực dân Pháp theo dõi,
-              đàn áp.
-            </p>
-          </div>
-
-        </div>
-
-        <div class="warning-box">
-          <strong>2/1929:</strong>
-          Sau vụ ám sát trùm mộ phu Ba-danh,
-          thực dân Pháp tiến hành nhiều cuộc vây ráp,
-          khiến cơ sở của đảng bị tổn thất nặng.
-        </div>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 10 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">09</div>
-
-        <h2 class="slide-title">
-          Khởi nghĩa Yên Bái
-        </h2>
-
-        <div class="date-highlight danger">
-          <span>9/2/1930</span>
-          <small>Cuộc khởi nghĩa của VNQDĐ</small>
-        </div>
-
-        <div class="yên-bái-content">
-
-          <div class="big-date">
-            1930
-          </div>
-
-          <div>
-
-            <p>
-              Cuộc khởi nghĩa nổ ra ở Yên Bái,
-              sau đó lan ra một số nơi như Phú Thọ,
-              Hải Dương, Thái Bình,...
-            </p>
-
-            <p>
-              Do lực lượng yếu và bị thực dân Pháp đàn áp,
-              cuộc khởi nghĩa nhanh chóng thất bại.
-            </p>
-
-          </div>
-
-        </div>
-
-        <div class="quote-danger">
-          Thất bại của khởi nghĩa Yên Bái cho thấy
-          con đường cứu nước theo khuynh hướng dân chủ tư sản
-          không thành công.
-        </div>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 11 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">10</div>
-
-        <h2 class="slide-title">
-          So sánh ba tổ chức
-        </h2>
-
-        <div class="comparison-table">
-
-          <table>
-
-            <thead>
-              <tr>
-                <th>Tổ chức</th>
-                <th>Thời gian</th>
-                <th>Khuynh hướng</th>
-                <th>Hoạt động nổi bật</th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <tr>
-                <td>
-                  <strong>Hội VN CMTN</strong>
-                </td>
-
-                <td>6/1925</td>
-
-                <td>Vô sản</td>
-
-                <td>
-                  Huấn luyện cán bộ,
-                  “vô sản hoá”
-                </td>
-              </tr>
-
-
-              <tr>
-                <td>
-                  <strong>Tân Việt</strong>
-                </td>
-
-                <td>7/1928</td>
-
-                <td>
-                  Dần chuyển sang vô sản
-                </td>
-
-                <td>
-                  Tuyên truyền sách báo,
-                  tổ chức đấu tranh
-                </td>
-              </tr>
-
-
-              <tr>
-                <td>
-                  <strong>VNQDĐ</strong>
-                </td>
-
-                <td>12/1927</td>
-
-                <td>Dân chủ tư sản</td>
-
-                <td>
-                  Bạo động,
-                  chuẩn bị khởi nghĩa
-                </td>
-              </tr>
-
-            </tbody>
-
-          </table>
-
-        </div>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 12 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">11</div>
-
-        <h2 class="slide-title">
-          Nhìn lại sự phát triển của các khuynh hướng
-        </h2>
-
-        <div class="compare-columns">
-
-          <div class="compare-column">
-
-            <div class="column-title">
-              Khuynh hướng dân chủ tư sản
             </div>
 
-            <ul>
-              <li>VNQDĐ là tổ chức tiêu biểu.</li>
-              <li>Chủ trương dùng bạo động.</li>
-              <li>Khởi nghĩa Yên Bái thất bại.</li>
-            </ul>
-
-          </div>
+        </section>
 
 
-          <div class="compare-column main-column">
+        <!-- =========================================
+             SLIDE 3
+        ========================================== -->
+        <section class="slide" data-label="Mốc thời gian">
 
-            <div class="column-title">
-              Khuynh hướng vô sản
+            <div class="section-number reveal">02</div>
+
+            <div class="slide-heading reveal">
+                <span>NHÌN TOÀN CẢNH</span>
+                <h2>Những mốc thời gian chính</h2>
             </div>
 
-            <ul>
-              <li>Hội Việt Nam Cách mạng Thanh niên phát triển.</li>
-              <li>Tân Việt có sự chuyển biến về lập trường.</li>
-              <li>Chủ nghĩa Mác – Lê-nin được truyền bá ngày càng rộng.</li>
-            </ul>
+            <div class="timeline">
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-year">1925</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Hội Việt Nam Cách mạng Thanh niên</h3>
+                        <p>
+                            Nguyễn Ái Quốc thành lập tại Quảng Châu.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-year">1927</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Việt Nam Quốc dân đảng</h3>
+                        <p>
+                            Thành lập tháng 12 năm 1927.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-year">1928</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Tân Việt Cách mạng đảng</h3>
+                        <p>
+                            Đổi tên thành Tân Việt Cách mạng đảng
+                            vào tháng 7 năm 1928.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-year">1929</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Biến động lớn</h3>
+                        <p>
+                            VNQDĐ bị Pháp vây ráp sau vụ ám sát Bazin.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-year">1930</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Khởi nghĩa Yên Bái</h3>
+                        <p>
+                            Nổ ra đêm 9 tháng 2 năm 1930 và nhanh chóng thất bại.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SLIDE 4
+        ========================================== -->
+        <section class="slide" data-label="Hội Việt Nam CMTN">
+
+            <div class="section-number reveal">03</div>
+
+            <div class="slide-heading reveal">
+                <span>TỔ CHỨC THỨ NHẤT</span>
+                <h2>Hội Việt Nam Cách mạng Thanh niên</h2>
+            </div>
+
+            <div class="two-column">
+
+                <div class="big-fact reveal">
+                    <div class="fact-year">06 / 1925</div>
+
+                    <h3>Nguyễn Ái Quốc<br>thành lập Hội</h3>
+
+                    <p>
+                        Tại <strong>Quảng Châu (Trung Quốc)</strong>.
+                    </p>
+                </div>
+
+                <div class="content-stack">
+
+                    <div class="content-card reveal">
+                        <span>01</span>
+                        <div>
+                            <h3>Cơ sở thành lập</h3>
+                            <p>
+                                Lựa chọn những thanh niên ưu tú đang hoạt động
+                                ở Trung Quốc, thuộc Tâm tâm xã, và những thanh niên
+                                từ trong nước sang.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content-card reveal">
+                        <span>02</span>
+                        <div>
+                            <h3>Chương trình và Điều lệ</h3>
+                            <p>
+                                Hội công bố Chương trình, Điều lệ và xác định
+                                mục đích hoạt động rõ ràng.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content-card reveal">
+                        <span>03</span>
+                        <div>
+                            <h3>Thành phần</h3>
+                            <p>
+                                Thanh niên, trí thức, công nhân, nông dân,...
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SLIDE 5
+        ========================================== -->
+        <section class="slide" data-label="Mục đích Hội">
+
+            <div class="section-number reveal">04</div>
+
+            <div class="slide-heading reveal">
+                <span>HỘI VIỆT NAM CMTN</span>
+                <h2>Mục đích và hoạt động</h2>
+            </div>
+
+            <div class="three-cards">
+
+                <article class="feature-card reveal">
+                    <div class="feature-icon">01</div>
+                    <h3>Giành độc lập</h3>
+                    <p>
+                        Làm cách mạng dân tộc để giành độc lập.
+                    </p>
+                </article>
+
+                <article class="feature-card reveal">
+                    <div class="feature-icon">02</div>
+                    <h3>Tiến tới xã hội cộng sản</h3>
+                    <p>
+                        Sau đó làm cách mạng thế giới để đi đến
+                        xã hội cộng sản.
+                    </p>
+                </article>
+
+                <article class="feature-card reveal">
+                    <div class="feature-icon">03</div>
+                    <h3>Huấn luyện cán bộ</h3>
+                    <p>
+                        Hội mở nhiều lớp huấn luyện cán bộ,
+                        chuẩn bị lực lượng cho cách mạng.
+                    </p>
+                </article>
+
+            </div>
+
+            <div class="bottom-note reveal">
+                <span>ĐIỂM NHẤN</span>
+                <strong>
+                    Nguyễn Ái Quốc trực tiếp tham gia giảng dạy tại các lớp huấn luyện.
+                </strong>
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SLIDE 6
+        ========================================== -->
+        <section class="slide" data-label="Đường Kách mệnh">
+
+            <div class="section-number reveal">05</div>
+
+            <div class="slide-heading reveal">
+                <span>CHUẨN BỊ VỀ LÍ LUẬN</span>
+                <h2><em>Đường Kách mệnh</em></h2>
+            </div>
+
+            <div class="book-layout">
+
+                <div class="book-visual reveal">
+                    <div class="book">
+                        <div class="book-top">ĐƯỜNG</div>
+                        <div class="book-main">KÁCH<br>MỆNH</div>
+                        <div class="book-bottom">1927</div>
+                    </div>
+                </div>
+
+                <div class="book-content">
+
+                    <div class="book-step reveal">
+                        <span>01</span>
+                        <div>
+                            <h3>Các lớp huấn luyện</h3>
+                            <p>
+                                Nguyễn Ái Quốc giảng bài cho các thanh niên
+                                tại các lớp huấn luyện cán bộ.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="book-step reveal">
+                        <span>02</span>
+                        <div>
+                            <h3>Tập hợp thành sách</h3>
+                            <p>
+                                Những bài giảng của Nguyễn Ái Quốc được
+                                tập hợp thành sách <em>Đường Kách mệnh</em>
+                                vào năm 1927.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="book-step reveal">
+                        <span>03</span>
+                        <div>
+                            <h3>Đưa về trong nước</h3>
+                            <p>
+                                Sách được bí mật đưa về nước,
+                                góp phần chuẩn bị lí luận cho cán bộ cách mạng.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SLIDE 7
+        ========================================== -->
+        <section class="slide" data-label="Vô sản hóa">
+
+            <div class="section-number reveal">06</div>
+
+            <div class="slide-heading reveal">
+                <span>NĂM 1928</span>
+                <h2>Phong trào “vô sản hoá”</h2>
+            </div>
+
+            <div class="process">
+
+                <div class="process-item reveal">
+                    <div class="process-number">01</div>
+                    <h3>Đưa cán bộ vào thực tế</h3>
+                    <p>
+                        Cán bộ được đưa vào các
+                        <strong>đồn điền, hầm mỏ,...</strong>
+                        trong nước.
+                    </p>
+                </div>
+
+                <div class="process-arrow reveal">→</div>
+
+                <div class="process-item reveal">
+                    <div class="process-number">02</div>
+                    <h3>Rèn luyện và tuyên truyền</h3>
+                    <p>
+                        Rèn luyện cán bộ, tuyên truyền cách mạng
+                        và nâng cao ý thức chính trị cho công nhân.
+                    </p>
+                </div>
+
+                <div class="process-arrow reveal">→</div>
+
+                <div class="process-item reveal">
+                    <div class="process-number">03</div>
+                    <h3>Tổ chức quần chúng</h3>
+                    <p>
+                        Tổ chức quần chúng tham gia
+                        các cuộc đấu tranh.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="highlight-strip reveal">
+                <span>Ý NGHĨA</span>
+                <strong>
+                    Gắn hoạt động cách mạng với thực tiễn đấu tranh của công nhân và quần chúng.
+                </strong>
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SLIDE 8
+        ========================================== -->
+        <section class="slide" data-label="Kết quả Hội">
+
+            <div class="section-number reveal">07</div>
+
+            <div class="slide-heading reveal">
+                <span>HỘI VIỆT NAM CMTN</span>
+                <h2>Kết quả và đóng góp</h2>
+            </div>
+
+            <div class="result-layout">
+
+                <div class="result-main reveal">
+
+                    <div class="result-number">05 / 1929</div>
+
+                    <h3>
+                        Trước tháng 5 năm 1929,
+                        Hội đã xây dựng được cơ sở ở nhiều nơi.
+                    </h3>
+
+                    <div class="location-tags">
+                        <span>Ba kỳ trong nước</span>
+                        <span>Trung Quốc</span>
+                        <span>Xiêm</span>
+                    </div>
+
+                </div>
+
+                <div class="result-side">
+
+                    <div class="result-card reveal">
+                        <span>01</span>
+                        <p>
+                            Thành phần gồm thanh niên, trí thức,
+                            công nhân, nông dân,...
+                        </p>
+                    </div>
+
+                    <div class="result-card reveal">
+                        <span>02</span>
+                        <p>
+                            Mở rộng hoạt động và xây dựng cơ sở
+                            trong và ngoài nước.
+                        </p>
+                    </div>
+
+                    <div class="result-card important reveal">
+                        <span>03</span>
+                        <p>
+                            <strong>
+                                Góp phần truyền bá chủ nghĩa Mác – Lê-nin
+                                vào Việt Nam.
+                            </strong>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SLIDE 9
+        ========================================== -->
+        <section class="slide" data-label="Tân Việt">
+
+            <div class="section-number reveal">08</div>
+
+            <div class="slide-heading reveal">
+                <span>TỔ CHỨC THỨ HAI</span>
+                <h2>Tân Việt Cách mạng đảng</h2>
+            </div>
+
+            <div class="tanviet-layout">
+
+                <div class="tanviet-origin reveal">
+
+                    <div class="origin-box">
+                        <span>TIỀN THÂN</span>
+                        <strong>Hội Phục Việt</strong>
+                    </div>
+
+                    <div class="origin-arrow">↓</div>
+
+                    <div class="origin-box main">
+                        <span>07 / 1928</span>
+                        <strong>Tân Việt Cách mạng đảng</strong>
+                    </div>
+
+                </div>
+
+                <div class="tanviet-info">
+
+                    <div class="mini-card reveal">
+                        <span>01</span>
+                        <div>
+                            <h3>Địa bàn hoạt động</h3>
+                            <p>Chủ yếu ở Trung Kỳ.</p>
+                        </div>
+                    </div>
+
+                    <div class="mini-card reveal">
+                        <span>02</span>
+                        <div>
+                            <h3>Lực lượng chủ yếu</h3>
+                            <p>
+                                Trí thức trẻ, thanh niên,
+                                tư sản yêu nước.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mini-card reveal">
+                        <span>03</span>
+                        <div>
+                            <h3>Hoạt động</h3>
+                            <p>
+                                Giới thiệu sách báo yêu nước tiến bộ,
+                                tổ chức một số cuộc đấu tranh.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SLIDE 10
+        ========================================== -->
+        <section class="slide" data-label="Chuyển biến Tân Việt">
+
+            <div class="section-number reveal">09</div>
+
+            <div class="slide-heading reveal">
+                <span>ĐIỂM ĐÁNG CHÚ Ý</span>
+                <h2>Sự chuyển biến của Tân Việt</h2>
+            </div>
+
+            <div class="transition-layout">
+
+                <div class="transition-side reveal">
+
+                    <div class="direction-box old">
+                        <small>BAN ĐẦU</small>
+                        <strong>Dân chủ tư sản</strong>
+                    </div>
+
+                    <div class="direction-arrow">→</div>
+
+                    <div class="direction-box new">
+                        <small>VỀ SAU</small>
+                        <strong>Dần chuyển sang vô sản</strong>
+                    </div>
+
+                </div>
+
+                <div class="transition-info">
+
+                    <div class="transition-card reveal">
+                        <span>ẢNH HƯỞNG</span>
+                        <p>
+                            Tân Việt chịu ảnh hưởng của
+                            <strong>Hội Việt Nam Cách mạng Thanh niên</strong>.
+                        </p>
+                    </div>
+
+                    <div class="transition-card reveal">
+                        <span>HOẠT ĐỘNG</span>
+                        <p>
+                            Góp phần truyền bá chủ nghĩa Mác – Lê-nin
+                            trong nước; tổ chức một số cuộc đấu tranh
+                            của học sinh, tiểu thương, công nhân.
+                        </p>
+                    </div>
+
+                    <div class="transition-card reveal">
+                        <span>LIÊN HỆ</span>
+                        <p>
+                            Nhiều đảng viên được cử sang dự các lớp
+                            huấn luyện của Hội Việt Nam Cách mạng Thanh niên.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SLIDE 11
+        ========================================== -->
+        <section class="slide" data-label="VNQDĐ">
+
+            <div class="section-number reveal">10</div>
+
+            <div class="slide-heading reveal">
+                <span>TỔ CHỨC THỨ BA</span>
+                <h2>Việt Nam Quốc dân đảng</h2>
+            </div>
+
+            <div class="vnqdd-layout">
+
+                <div class="vnqdd-date reveal">
+                    <span>12 / 1927</span>
+                    <strong>THÀNH LẬP</strong>
+
+                    <p>
+                        Trên cơ sở hạt nhân là một số thành viên
+                        <strong>Nam Đồng thư xã</strong>.
+                    </p>
+                </div>
+
+                <div class="vnqdd-content">
+
+                    <div class="vnqdd-card reveal">
+                        <span>NHÂN VẬT</span>
+                        <p>
+                            Nguyễn Thái Học, Phó Đức Chính,...
+                        </p>
+                    </div>
+
+                    <div class="vnqdd-card reveal">
+                        <span>THÀNH PHẦN</span>
+                        <p>
+                            Tư sản dân tộc, binh lính Việt Nam trong quân đội Pháp,
+                            viên chức, học sinh, thân hào, thân sĩ nông thôn,...
+                        </p>
+                    </div>
+
+                    <div class="vnqdd-card reveal">
+                        <span>KHUYNH HƯỚNG</span>
+                        <p>
+                            <strong>Dân chủ tư sản.</strong>
+                        </p>
+                    </div>
+
+                    <div class="vnqdd-card reveal">
+                        <span>MỤC TIÊU</span>
+                        <p>
+                            Đánh đuổi giặc Pháp, thiết lập dân quyền.
+                        </p>
+                    </div>
+
+                    <div class="vnqdd-card wide reveal">
+                        <span>PHƯƠNG PHÁP</span>
+                        <p>
+                            Bạo động, ám sát cá nhân.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SLIDE 12
+        ========================================== -->
+        <section class="slide" data-label="Vụ Bazin">
+
+            <div class="section-number reveal">11</div>
+
+            <div class="slide-heading reveal">
+                <span>ĐẦU THÁNG 02 / 1929</span>
+                <h2>Vụ ám sát Bazin</h2>
+            </div>
+
+            <div class="bazin-layout">
+
+                <div class="bazin-main reveal">
+
+                    <div class="event-date">02 / 1929</div>
+
+                    <h3>
+                        VNQDĐ tổ chức ám sát
+                        <strong>trùm mộ phu Bazin.</strong>
+                    </h3>
+
+                    <p>
+                        Sau sự kiện này, thực dân Pháp tiến hành
+                        các cuộc <strong>vây ráp lớn</strong>.
+                    </p>
+
+                </div>
+
+                <div class="event-flow">
+
+                    <div class="event-step reveal">
+                        <b>01</b>
+                        <span>Ám sát Bazin</span>
+                    </div>
+
+                    <div class="flow-line reveal"></div>
+
+                    <div class="event-step reveal">
+                        <b>02</b>
+                        <span>Pháp vây ráp lớn</span>
+                    </div>
+
+                    <div class="flow-line reveal"></div>
+
+                    <div class="event-step danger reveal">
+                        <b>03</b>
+                        <span>Nhiều cơ sở bị tan vỡ</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="bottom-note danger-note reveal">
+                <span>HỆ QUẢ</span>
+                <strong>
+                    VNQDĐ gặp nhiều tổn thất ngay trước khi tiến hành khởi nghĩa.
+                </strong>
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SLIDE 13
+        ========================================== -->
+        <section class="slide" data-label="Yên Bái">
+
+            <div class="section-number reveal">12</div>
+
+            <div class="slide-heading reveal">
+                <span>ĐÊM 09 / 02 / 1930</span>
+                <h2>Khởi nghĩa Yên Bái</h2>
+            </div>
+
+            <div class="yenbai-layout">
+
+                <div class="yenbai-map reveal">
+
+                    <div class="map-title">ĐỊA BÀN KHỞI NGHĨA</div>
+
+                    <div class="map-center">
+                        <strong>YÊN BÁI</strong>
+                        <span>nay thuộc tỉnh Lào Cai</span>
+                    </div>
+
+                    <div class="map-place place-1">Phú Thọ</div>
+                    <div class="map-place place-2">
+                        Hải Dương<br>
+                        <small>nay thuộc TP Hải Phòng</small>
+                    </div>
+                    <div class="map-place place-3">
+                        Thái Bình<br>
+                        <small>nay thuộc tỉnh Hưng Yên</small>
+                    </div>
+
+                </div>
+
+                <div class="yenbai-content">
+
+                    <div class="yenbai-card reveal">
+                        <span>THỜI GIAN</span>
+                        <strong>Đêm 9 tháng 2 năm 1930</strong>
+                    </div>
+
+                    <div class="yenbai-card reveal">
+                        <span>DIỄN BIẾN</span>
+                        <p>
+                            Khởi nghĩa nổ ra ở thị xã Yên Bái,
+                            một số nơi ở Phú Thọ, sau đó là Hải Dương,
+                            Thái Bình,...
+                        </p>
+                    </div>
+
+                    <div class="yenbai-card fail reveal">
+                        <span>KẾT QUẢ</span>
+                        <strong>
+                            Nhanh chóng bị thực dân Pháp đàn áp dã man và thất bại.
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SLIDE 14
+        ========================================== -->
+        <section class="slide" data-label="So sánh">
+
+            <div class="section-number reveal">13</div>
+
+            <div class="slide-heading reveal">
+                <span>NHÌN LẠI BA TỔ CHỨC</span>
+                <h2>So sánh</h2>
+            </div>
+
+            <div class="comparison-table reveal">
+
+                <div class="comparison-header">
+                    <div>TỔ CHỨC</div>
+                    <div>KHUYNH HƯỚNG</div>
+                    <div>HOẠT ĐỘNG / PHƯƠNG PHÁP</div>
+                    <div>KẾT QUẢ / Ý NGHĨA</div>
+                </div>
+
+                <div class="comparison-row">
+
+                    <div class="org-name">
+                        <span>01</span>
+                        <strong>Hội VN CMTN</strong>
+                    </div>
+
+                    <div>
+                        <strong>Vô sản</strong>
+                    </div>
+
+                    <div>
+                        Huấn luyện cán bộ,
+                        <em>Đường Kách mệnh</em>,
+                        “vô sản hoá”.
+                    </div>
+
+                    <div>
+                        Góp phần truyền bá
+                        chủ nghĩa Mác – Lê-nin.
+                    </div>
+
+                </div>
+
+                <div class="comparison-row">
+
+                    <div class="org-name">
+                        <span>02</span>
+                        <strong>Tân Việt</strong>
+                    </div>
+
+                    <div>
+                        Ban đầu dân chủ tư sản
+                        → dần chuyển sang vô sản
+                    </div>
+
+                    <div>
+                        Sách báo yêu nước,
+                        truyền bá Mác – Lê-nin,
+                        tổ chức đấu tranh.
+                    </div>
+
+                    <div>
+                        Có sự chuyển biến
+                        về lập trường chính trị.
+                    </div>
+
+                </div>
+
+                <div class="comparison-row">
+
+                    <div class="org-name">
+                        <span>03</span>
+                        <strong>VNQDĐ</strong>
+                    </div>
+
+                    <div>
+                        Dân chủ tư sản
+                    </div>
+
+                    <div>
+                        Bạo động,
+                        ám sát cá nhân.
+                    </div>
+
+                    <div>
+                        Khởi nghĩa Yên Bái thất bại,
+                        tổ chức tan rã nhanh.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
 
-          </div>
+        <!-- =========================================
+             SLIDE 15
+        ========================================== -->
+        <section class="slide conclusion-slide" data-label="Nhận xét">
 
-        </div>
+            <div class="section-number reveal">14</div>
 
-        <div class="note-box">
-          Qua đó, khuynh hướng vô sản ngày càng có ảnh hưởng
-          trong phong trào dân tộc dân chủ ở Việt Nam.
-        </div>
+            <div class="slide-heading reveal">
+                <span>KẾT LUẬN</span>
+                <h2>Khuynh hướng nào ngày càng thắng thế?</h2>
+            </div>
 
-      </section>
+            <div class="conclusion-main reveal">
 
+                <div class="conclusion-quote">
+                    <span>“</span>
 
-      <!-- ==================== SLIDE 13 ==================== -->
+                    <p>
+                        Sự thất bại của Khởi nghĩa Yên Bái
+                        cho thấy khuynh hướng dân chủ tư sản
+                        <strong>hoàn toàn bất lực</strong>
+                        trước nhiệm vụ cứu nước.
+                    </p>
 
-      <section class="slide quiz-slide">
+                    <span>”</span>
+                </div>
 
-        <div class="section-number">12</div>
+                <div class="conclusion-arrow">↓</div>
 
-        <h2 class="slide-title">
-          Củng cố kiến thức
-        </h2>
+                <div class="conclusion-result">
+                    <div>
+                        <small>TRONG KHI ĐÓ</small>
+                        <strong>Hội Việt Nam Cách mạng Thanh niên phát triển</strong>
+                    </div>
 
-        <p class="quiz-number">
-          Câu 1
-        </p>
+                    <div>
+                        <small>ĐỒNG THỜI</small>
+                        <strong>Tân Việt chuyển dần sang khuynh hướng vô sản</strong>
+                    </div>
+                </div>
 
-        <p class="quiz-question">
-          Ba tổ chức yêu nước cách mạng tiêu biểu trong giai đoạn
-          1925 – 1928 là:
-        </p>
+                <div class="final-statement">
+                    <span>⇒</span>
+                    <strong>
+                        Khuynh hướng vô sản ngày càng thắng thế
+                        trong phong trào dân tộc dân chủ Việt Nam.
+                    </strong>
+                </div>
 
-        <div class="quiz-options">
+            </div>
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 0, 0)">
-            A. Tâm tâm xã, Nam Đồng thư xã, Hội Phục Việt
-          </button>
+        </section>
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 0, 1)">
-            B. Hội Phục Việt, Tâm tâm xã, VNQDĐ
-          </button>
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 0, 2)">
-            C. Hội VN CMTN, Tân Việt, VNQDĐ
-          </button>
+        <!-- =========================================
+             SLIDE 16
+        ========================================== -->
+        <section class="slide quiz-slide" data-label="Câu hỏi 1">
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 0, 3)">
-            D. Hội Phục Việt, Nam Đồng thư xã, Tân Việt
-          </button>
+            <div class="section-number reveal">15</div>
 
-        </div>
+            <div class="slide-heading reveal">
+                <span>KIỂM TRA NHANH</span>
+                <h2>Câu hỏi 01</h2>
+            </div>
 
-        <div class="answer-message"></div>
+            <div class="quiz">
 
-      </section>
+                <div class="quiz-question reveal">
+                    Trong các tổ chức sau, tổ chức nào được
+                    Nguyễn Ái Quốc thành lập vào tháng 6 năm 1925?
+                </div>
 
+                <div class="quiz-options">
 
-      <!-- ==================== SLIDE 14 ==================== -->
+                    <button class="quiz-option reveal" data-answer="0">
+                        <span>A</span>
+                        Tân Việt Cách mạng đảng
+                    </button>
 
-      <section class="slide">
+                    <button class="quiz-option reveal" data-answer="1">
+                        <span>B</span>
+                        Việt Nam Quốc dân đảng
+                    </button>
 
-        <div class="section-number">13</div>
+                    <button class="quiz-option reveal" data-answer="2">
+                        <span>C</span>
+                        Hội Việt Nam Cách mạng Thanh niên
+                    </button>
 
-        <h2 class="slide-title">
-          Đáp án câu 1
-        </h2>
+                    <button class="quiz-option reveal" data-answer="3">
+                        <span>D</span>
+                        Hội Phục Việt
+                    </button>
 
-        <div class="answer-box">
+                </div>
 
-          <div class="answer-letter">
-            C
-          </div>
+                <div class="quiz-feedback" aria-live="polite"></div>
 
-          <div>
-            <h3>
-              Hội Việt Nam Cách mạng Thanh niên,
-              Tân Việt Cách mạng đảng và Việt Nam Quốc dân đảng.
-            </h3>
+            </div>
 
-            <p>
-              Ba tổ chức này lần lượt ra đời trong giai đoạn
-              1925 – 1928 và có những khuynh hướng, hoạt động khác nhau.
-            </p>
-          </div>
+        </section>
 
-        </div>
 
-      </section>
+        <!-- =========================================
+             SLIDE 17
+        ========================================== -->
+        <section class="slide quiz-slide" data-label="Câu hỏi 2">
 
+            <div class="section-number reveal">16</div>
 
-      <!-- ==================== SLIDE 15 ==================== -->
+            <div class="slide-heading reveal">
+                <span>KIỂM TRA NHANH</span>
+                <h2>Câu hỏi 02</h2>
+            </div>
 
-      <section class="slide quiz-slide">
+            <div class="quiz">
 
-        <div class="section-number">14</div>
+                <div class="quiz-question reveal">
+                    Tân Việt Cách mạng đảng ban đầu đi theo
+                    khuynh hướng nào?
+                </div>
 
-        <h2 class="slide-title">
-          Củng cố kiến thức
-        </h2>
+                <div class="quiz-options">
 
-        <p class="quiz-number">
-          Câu 2
-        </p>
+                    <button class="quiz-option reveal" data-answer="0">
+                        <span>A</span>
+                        Vô sản
+                    </button>
 
-        <p class="quiz-question">
-          Tổ chức nào tiêu biểu cho khuynh hướng
-          cách mạng dân chủ tư sản?
-        </p>
+                    <button class="quiz-option reveal" data-answer="1">
+                        <span>B</span>
+                        Dân chủ tư sản
+                    </button>
 
-        <div class="quiz-options">
+                    <button class="quiz-option reveal" data-answer="2">
+                        <span>C</span>
+                        Quân chủ lập hiến
+                    </button>
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 1, 0)">
-            A. Hội Việt Nam Cách mạng Thanh niên
-          </button>
+                    <button class="quiz-option reveal" data-answer="3">
+                        <span>D</span>
+                        Phong kiến
+                    </button>
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 1, 1)">
-            B. Tân Việt Cách mạng đảng
-          </button>
+                </div>
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 1, 2)">
-            C. Việt Nam Quốc dân đảng
-          </button>
+                <div class="quiz-feedback" aria-live="polite"></div>
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 1, 3)">
-            D. Tâm tâm xã
-          </button>
+            </div>
 
-        </div>
+        </section>
 
-        <div class="answer-message"></div>
 
-      </section>
+        <!-- =========================================
+             SLIDE 18
+        ========================================== -->
+        <section class="slide quiz-slide" data-label="Câu hỏi 3">
 
+            <div class="section-number reveal">17</div>
 
-      <!-- ==================== SLIDE 16 ==================== -->
+            <div class="slide-heading reveal">
+                <span>KIỂM TRA NHANH</span>
+                <h2>Câu hỏi 03</h2>
+            </div>
 
-      <section class="slide">
+            <div class="quiz">
 
-        <div class="section-number">15</div>
+                <div class="quiz-question reveal">
+                    Thất bại của Khởi nghĩa Yên Bái cho thấy điều gì?
+                </div>
 
-        <h2 class="slide-title">
-          Đáp án câu 2
-        </h2>
+                <div class="quiz-options">
 
-        <div class="answer-box">
+                    <button class="quiz-option reveal" data-answer="0">
+                        <span>A</span>
+                        Khuynh hướng dân chủ tư sản
+                        hoàn toàn bất lực trước nhiệm vụ cứu nước
+                    </button>
 
-          <div class="answer-letter">
-            C
-          </div>
+                    <button class="quiz-option reveal" data-answer="1">
+                        <span>B</span>
+                        Phong trào dân tộc dân chủ chấm dứt
+                    </button>
 
-          <div>
-            <h3>
-              Việt Nam Quốc dân đảng
-            </h3>
+                    <button class="quiz-option reveal" data-answer="2">
+                        <span>C</span>
+                        Thực dân Pháp chấm dứt đàn áp
+                    </button>
 
-            <p>
-              VNQDĐ theo khuynh hướng cách mạng dân chủ tư sản
-              và chủ trương dùng bạo động để giành chính quyền.
-            </p>
-          </div>
+                    <button class="quiz-option reveal" data-answer="3">
+                        <span>D</span>
+                        Tân Việt giải thể ngay sau khởi nghĩa
+                    </button>
 
-        </div>
+                </div>
 
-      </section>
+                <div class="quiz-feedback" aria-live="polite"></div>
 
+            </div>
 
-      <!-- ==================== SLIDE 17 ==================== -->
+        </section>
 
-      <section class="slide quiz-slide">
 
-        <div class="section-number">16</div>
+        <!-- =========================================
+             SLIDE 19
+        ========================================== -->
+        <section class="slide summary-slide" data-label="Tóm tắt">
 
-        <h2 class="slide-title">
-          Củng cố kiến thức
-        </h2>
+            <div class="section-number reveal">18</div>
 
-        <p class="quiz-number">
-          Câu 3
-        </p>
+            <div class="slide-heading reveal">
+                <span>GHI NHỚ</span>
+                <h2>Tóm tắt nội dung</h2>
+            </div>
 
-        <p class="quiz-question">
-          Sự kiện nào cho thấy khuynh hướng dân chủ tư sản
-          không thành công trong việc giành chính quyền?
-        </p>
+            <div class="summary-grid">
 
-        <div class="quiz-options">
+                <div class="summary-item reveal">
+                    <span>01</span>
+                    <h3>Ba tổ chức tiêu biểu</h3>
+                    <p>
+                        Hội Việt Nam Cách mạng Thanh niên (1925),
+                        Việt Nam Quốc dân đảng (12/1927),
+                        Tân Việt Cách mạng đảng (7/1928).
+                    </p>
+                </div>
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 2, 0)">
-            A. Vụ ám sát Ba-danh
-          </button>
+                <div class="summary-item reveal">
+                    <span>02</span>
+                    <h3>Tân Việt có sự chuyển biến</h3>
+                    <p>
+                        Từ khuynh hướng dân chủ tư sản
+                        chuyển dần sang khuynh hướng vô sản.
+                    </p>
+                </div>
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 2, 1)">
-            B. Khởi nghĩa Yên Bái thất bại
-          </button>
+                <div class="summary-item reveal">
+                    <span>03</span>
+                    <h3>Yên Bái thất bại</h3>
+                    <p>
+                        Sự thất bại và tan rã của VNQDĐ
+                        cho thấy hạn chế của khuynh hướng dân chủ tư sản.
+                    </p>
+                </div>
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 2, 2)">
-            C. Phong trào “vô sản hoá”
-          </button>
+                <div class="summary-item important-summary reveal">
+                    <span>04</span>
+                    <h3>Khuynh hướng vô sản</h3>
+                    <p>
+                        Sự phát triển của Hội Việt Nam CMTN
+                        và sự chuyển biến của Tân Việt cho thấy
+                        khuynh hướng vô sản ngày càng thắng thế.
+                    </p>
+                </div>
 
-          <button
-            class="opt-btn"
-            onclick="checkAnswer(this, 2, 3)">
-            D. Sự ra đời của Tân Việt
-          </button>
+            </div>
 
-        </div>
+        </section>
 
-        <div class="answer-message"></div>
 
-      </section>
+        <!-- =========================================
+             SLIDE 20
+        ========================================== -->
+        <section class="slide ending-slide" data-label="Kết thúc">
 
+            <div class="ending-content">
 
-      <!-- ==================== SLIDE 18 ==================== -->
+                <div class="ending-small reveal">
+                    BÀI THUYẾT TRÌNH ĐẾN ĐÂY LÀ HẾT
+                </div>
 
-      <section class="slide">
+                <h2 class="reveal">
+                    CẢM ƠN THẦY/CÔ
+                    <span>VÀ CÁC BẠN</span>
+                </h2>
 
-        <div class="section-number">17</div>
+                <p class="reveal">
+                    đã chú ý theo dõi!
+                </p>
 
-        <h2 class="slide-title">
-          Đáp án câu 3
-        </h2>
+                <div class="ending-line reveal"></div>
 
-        <div class="answer-box">
+                <div class="ending-info reveal">
+                    <span>LỊCH SỬ 9</span>
+                    <span>•</span>
+                    <span>BÀI 5 — PHẦN 4</span>
+                    <span>•</span>
+                    <span>9A6</span>
+                </div>
 
-          <div class="answer-letter">
-            B
-          </div>
+            </div>
 
-          <div>
-            <h3>
-              Khởi nghĩa Yên Bái thất bại
-            </h3>
+        </section>
 
-            <p>
-              Cuộc khởi nghĩa diễn ra ngày 9/2/1930 và nhanh chóng
-              bị thực dân Pháp đàn áp. Sau đó VNQDĐ tan rã nhanh chóng.
-            </p>
+    </main>
 
-          </div>
 
-        </div>
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <div class="navigation">
 
-      </section>
+        <button id="prevBtn" class="nav-btn" aria-label="Slide trước">
+            ←
+        </button>
 
+        <div class="nav-dots" id="navDots"></div>
 
-      <!-- ==================== SLIDE 19 ==================== -->
-
-      <section class="slide">
-
-        <div class="section-number">18</div>
-
-        <h2 class="slide-title">
-          Tóm tắt bài học
-        </h2>
-
-        <div class="summary-list">
-
-          <div class="summary-item">
-
-            <span>01</span>
-
-            <p>
-              <strong>Hội Việt Nam Cách mạng Thanh niên</strong>
-              ra đời năm 1925, mở các lớp huấn luyện và phát động
-              phong trào “vô sản hoá”.
-            </p>
-
-          </div>
-
-
-          <div class="summary-item">
-
-            <span>02</span>
-
-            <p>
-              <strong>Tân Việt Cách mạng đảng</strong>
-              ra đời từ Hội Phục Việt và dần chuyển sang khuynh hướng vô sản.
-            </p>
-
-          </div>
-
-
-          <div class="summary-item">
-
-            <span>03</span>
-
-            <p>
-              <strong>Việt Nam Quốc dân đảng</strong>
-              theo khuynh hướng dân chủ tư sản, nhưng khởi nghĩa Yên Bái
-              năm 1930 thất bại.
-            </p>
-
-          </div>
-
-
-          <div class="summary-item">
-
-            <span>04</span>
-
-            <p>
-              Sự phát triển của Hội Việt Nam Cách mạng Thanh niên
-              và sự chuyển biến của Tân Việt cho thấy
-              khuynh hướng vô sản ngày càng có ảnh hưởng.
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- ==================== SLIDE 20 ==================== -->
-
-      <section class="slide cover-slide end-slide">
-
-        <div class="cover-content">
-
-          <div class="small-label">
-            HẾT BÀI
-          </div>
-
-          <h1>
-            CẢM ƠN THẦY CÔ
-            <span>VÀ CÁC BẠN ĐÃ LẮNG NGHE!</span>
-          </h1>
-
-          <p class="cover-period">
-            Bài thuyết trình của nhóm 9A
-          </p>
-
-          <button
-            class="primary-btn"
-            onclick="goToSlide(0)">
-            ↺ Xem lại từ đầu
-          </button>
-
-        </div>
-
-      </section>
+        <button id="nextBtn" class="nav-btn primary" aria-label="Slide tiếp theo">
+            →
+        </button>
 
     </div>
 
-  </main>
+
+    <!-- =========================
+         KEYBOARD HINT
+    ========================== -->
+    <div class="keyboard-hint">
+        <span>← →</span>
+        <span>để chuyển slide</span>
+        <span class="hint-separator">•</span>
+        <span>SPACE</span>
+        <span>tiếp tục</span>
+    </div>
 
 
-  <!-- Điều khiển -->
-
-  <footer class="controls">
-
-    <button
-      class="control-btn"
-      onclick="prevSlide()">
-      ← Trước
-    </button>
-
-    <button
-      class="control-btn main-control"
-      onclick="nextSlide()">
-      Sau →
-    </button>
-
-  </footer>
-
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
