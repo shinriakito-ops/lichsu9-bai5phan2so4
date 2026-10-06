@@ -1,598 +1,819 @@
-/* =====================================================
-   ĐIỀU KHIỂN TRANG TRÌNH CHIẾU
-===================================================== */
+// =========================================
+// BIẾN CHÍNH
+// =========================================
 
-const danhSachSlide =
-    Array.from(document.querySelectorAll(".slide"));
+const khungSlide = document.getElementById("khungSlide");
 
-const tongSoSlide =
-    danhSachSlide.length;
+const soHienTai = document.getElementById("soHienTai");
+const tongSo = document.getElementById("tongSo");
 
-let slideDangXem = 0;
-let dangChuyenSlide = false;
+const tienTrinh = document.getElementById("tienTrinh");
 
+const nutTruoc = document.getElementById("nutTruoc");
+const nutSau = document.getElementById("nutSau");
+const nutNhac = document.getElementById("nutNhac");
 
-/* =====================================================
-   LẤY PHẦN TỬ
-===================================================== */
+const nhacNen = document.getElementById("nhacNen");
 
-const slideHienTai =
-    document.getElementById("slideHienTai");
+let slideHienTai = 0;
 
-const tongSoSlideHienThi =
-    document.getElementById("tongSoSlide");
-
-const thanhTienTrinh =
-    document.getElementById("thanhTienTrinh");
-
-const nutTruoc =
-    document.getElementById("nutTruoc");
-
-const nutSau =
-    document.getElementById("nutSau");
-
-const cacCham =
-    document.getElementById("cacCham");
-
-const nhacNen =
-    document.getElementById("nhacNen");
+let dangPhatNhac = false;
 
 
-/* =====================================================
-   HIỂN THỊ TỔNG SỐ SLIDE
-===================================================== */
+// =========================================
+// TẠO SLIDE
+// =========================================
 
-tongSoSlideHienThi.textContent =
-    String(tongSoSlide).padStart(2, "0");
+function taoSlide(slide, so) {
+
+    const khung = document.createElement("section");
+
+    khung.className = "slide";
+
+    khung.dataset.so = so;
 
 
-/* =====================================================
-   TẠO CÁC CHẤM ĐIỀU HƯỚNG
-===================================================== */
+    // -------------------------
+    // Trang bìa
+    // -------------------------
 
-danhSachSlide.forEach((slide, viTri) => {
+    if (slide.loai === "trang-bia") {
 
-    const cham =
-        document.createElement("button");
+        khung.classList.add("trang-bia");
 
-    cham.className = "cham-slide";
+        khung.innerHTML = `
+            <div class="nhan-slide">
+                ${slide.nhan}
+            </div>
 
-    cham.title =
-        `${viTri + 1}. ${slide.dataset.ten || "Slide"}`;
+            <h1 class="tieu-de">
+                ${slide.tieuDe}
+            </h1>
 
-    cham.addEventListener("click", () => {
+            <div class="phu-de">
+                ${slide.phuDe}
+            </div>
 
-        diToiSlide(viTri);
+            <div class="thong-tin-nhom">
+                ${slide.thongTin}
+            </div>
 
+            <div class="loi-mo-dau">
+                ${slide.loiMoDau}
+            </div>
+        `;
+
+        return khung;
+    }
+
+
+    // -------------------------
+    // Nội dung có card
+    // -------------------------
+
+    if (slide.loai === "noi-dung") {
+
+        khung.innerHTML = `
+            <div class="nhan-slide">
+                ${slide.nhan}
+            </div>
+
+            <h2 class="tieu-de">
+                ${slide.tieuDe}
+            </h2>
+
+            ${
+                slide.moDau
+                    ? `<p class="mo-dau">${slide.moDau}</p>`
+                    : ""
+            }
+
+            <div class="danh-sach-the">
+
+                ${slide.the.map(the => `
+
+                    <article class="the">
+
+                        <div class="so-the">
+                            ${the.so}
+                        </div>
+
+                        <h3>
+                            ${the.tieuDe}
+                        </h3>
+
+                        <p>
+                            ${the.noiDung}
+                        </p>
+
+                    </article>
+
+                `).join("")}
+
+            </div>
+
+            ${
+                slide.ket
+                    ? `<div class="ket">${slide.ket}</div>`
+                    : ""
+            }
+        `;
+
+        return khung;
+    }
+
+
+    // -------------------------
+    // Mốc thời gian
+    // -------------------------
+
+    if (slide.loai === "moc-thoi-gian") {
+
+        khung.innerHTML = `
+            <div class="nhan-slide">
+                ${slide.nhan}
+            </div>
+
+            <h2 class="tieu-de">
+                ${slide.tieuDe}
+            </h2>
+
+            <div class="danh-sach-the">
+
+                ${slide.moc.map((moc, index) => `
+
+                    <article class="the">
+
+                        <div class="so-the">
+                            ${moc[0]}
+                        </div>
+
+                        <h3>
+                            ${moc[1]}
+                        </h3>
+
+                        <p>
+                            Mốc thời gian quan trọng trong quá trình
+                            hình thành và phát triển phong trào.
+                        </p>
+
+                    </article>
+
+                `).join("")}
+
+            </div>
+        `;
+
+        return khung;
+    }
+
+
+    // -------------------------
+    // Điểm nhấn
+    // -------------------------
+
+    if (
+        slide.loai === "diem-nhan" ||
+        slide.loai === "su-kien-lon"
+    ) {
+
+        khung.classList.add(
+            slide.loai === "su-kien-lon"
+                ? "su-kien-lon"
+                : "diem-nhan"
+        );
+
+        khung.innerHTML = `
+            <div class="nhan-slide">
+                ${slide.nhan}
+            </div>
+
+            <div class="nam-lon">
+                ${slide.nam}
+            </div>
+
+            <h2 class="tieu-de">
+                ${slide.tieuDe}
+            </h2>
+
+            <p class="noi-dung-lon">
+                ${slide.noiDung}
+            </p>
+
+            <p class="diem-ket">
+                ${slide.ket}
+            </p>
+        `;
+
+        return khung;
+    }
+
+
+    // -------------------------
+    // Chuyển biến Tân Việt
+    // -------------------------
+
+    if (slide.loai === "chuyen-bien") {
+
+        khung.innerHTML = `
+            <div class="nhan-slide">
+                ${slide.nhan}
+            </div>
+
+            <h2 class="tieu-de">
+                ${slide.tieuDe}
+            </h2>
+
+            <div class="chuyen-bien-box">
+
+                <div class="huong">
+                    <span>Ban đầu</span>
+                    <strong>${slide.truoc}</strong>
+                </div>
+
+                <div class="mui-ten">
+                    →
+                </div>
+
+                <div class="huong sau">
+                    <span>Về sau</span>
+                    <strong>${slide.sau}</strong>
+                </div>
+
+            </div>
+
+            <p class="chuyen-bien-text">
+                ${slide.noiDung}
+            </p>
+
+            <div class="ket">
+                ${slide.them}
+            </div>
+        `;
+
+        return khung;
+    }
+
+
+    // -------------------------
+    // Cảnh báo
+    // -------------------------
+
+    if (slide.loai === "canh-bao") {
+
+        khung.classList.add("canh-bao");
+
+        khung.innerHTML = `
+            <div class="nhan-slide">
+                ${slide.nhan}
+            </div>
+
+            <div class="nam-lon">
+                2/1929
+            </div>
+
+            <h2 class="tieu-de">
+                ${slide.tieuDe}
+            </h2>
+
+            <p class="noi-dung-lon">
+                ${slide.noiDung}
+            </p>
+
+            <div class="ket">
+                ${slide.ket}
+            </div>
+        `;
+
+        return khung;
+    }
+
+
+    // -------------------------
+    // So sánh
+    // -------------------------
+
+    if (slide.loai === "so-sanh") {
+
+        khung.innerHTML = `
+            <div class="nhan-slide">
+                ${slide.nhan}
+            </div>
+
+            <h2 class="tieu-de">
+                ${slide.tieuDe}
+            </h2>
+
+            <div class="bang-so-sanh">
+
+                ${slide.cot.map(cot => `
+
+                    <article class="cot-so-sanh ${cot.mau}">
+
+                        <h3>
+                            ${cot.ten}
+                        </h3>
+
+                        <div class="nhan-cot">
+                            Khuynh hướng
+                        </div>
+
+                        <p>
+                            ${cot.khuynhHuong}
+                        </p>
+
+                        <div class="nhan-cot">
+                            Hoạt động
+                        </div>
+
+                        <p>
+                            ${cot.hoatDong}
+                        </p>
+
+                        <div class="nhan-cot">
+                            Kết quả
+                        </div>
+
+                        <p>
+                            ${cot.ketQua}
+                        </p>
+
+                    </article>
+
+                `).join("")}
+
+            </div>
+        `;
+
+        return khung;
+    }
+
+
+    // -------------------------
+    // Kết luận
+    // -------------------------
+
+    if (slide.loai === "ket-luan") {
+
+        khung.classList.add("ket-luan");
+
+        khung.innerHTML = `
+            <div class="nhan-slide">
+                ${slide.nhan}
+            </div>
+
+            <h2 class="tieu-de">
+                ${slide.tieuDe}
+            </h2>
+
+            <div class="ket-luan-box">
+                ${slide.noiDung}
+                <br><br>
+                <strong>
+                    ${slide.ket}
+                </strong>
+            </div>
+        `;
+
+        return khung;
+    }
+
+
+    // -------------------------
+    // Câu hỏi
+    // -------------------------
+
+    if (slide.loai === "cau-hoi") {
+
+        khung.classList.add("cau-hoi");
+
+        khung.innerHTML = `
+            <div class="nhan-slide">
+                ${slide.nhan}
+            </div>
+
+            <div class="cau-hoi-noi-dung">
+                ${slide.cauHoi}
+            </div>
+
+            <div class="danh-sach-dap-an">
+
+                ${slide.luaChon.map((dapAn, index) => {
+
+                    const chu = ["A", "B", "C", "D"][index];
+
+                    return `
+                        <button
+                            class="dap-an"
+                            data-dap-an="${index}"
+                        >
+
+                            <span class="ky-hieu-dap-an">
+                                ${chu}
+                            </span>
+
+                            <span>
+                                ${dapAn.substring(3)}
+                            </span>
+
+                        </button>
+                    `;
+
+                }).join("")}
+
+            </div>
+
+            <div class="phan-hoi"></div>
+        `;
+
+        return khung;
+    }
+
+
+    // -------------------------
+    // Slide 19
+    // -------------------------
+
+    if (slide.loai === "ket-thuc-noi-dung") {
+
+        khung.classList.add("ket-thuc-noi-dung");
+
+        khung.innerHTML = `
+            <div class="nhan-slide">
+                ${slide.nhan}
+            </div>
+
+            <h2 class="tieu-de">
+                ${slide.tieuDe}
+            </h2>
+
+            <div class="danh-sach-nho">
+
+                ${slide.noiDung.map(noiDung => `
+                    <div class="dong-noi-dung">
+                        <span class="dau-dong">✓</span>
+                        <span>${noiDung}</span>
+                    </div>
+                `).join("")}
+
+            </div>
+        `;
+
+        return khung;
+    }
+
+
+    // -------------------------
+    // Cảm ơn
+    // -------------------------
+
+    if (slide.loai === "cam-on") {
+
+        khung.classList.add("cam-on");
+
+        khung.innerHTML = `
+            <div class="nhan-slide">
+                PHẦN THUYẾT TRÌNH KẾT THÚC
+            </div>
+
+            <h2 class="tieu-de">
+                ${slide.tieuDe}
+            </h2>
+
+            <p class="cam-on-thong-tin">
+                ${slide.thongTin}
+            </p>
+
+            <div class="cam-on-lop">
+                ${slide.lop}
+            </div>
+        `;
+
+        return khung;
+    }
+
+
+    return khung;
+}
+
+
+// =========================================
+// HIỂN THỊ TOÀN BỘ SLIDE
+// =========================================
+
+function taoTatCaSlide() {
+
+    duLieuSlide.forEach((slide, index) => {
+
+        const khung = taoSlide(slide, index);
+
+        khung.addEventListener(
+            "click",
+            xuLyClickQuiz
+        );
+
+        khungSlide.appendChild(khung);
     });
 
-    cacCham.appendChild(cham);
-
-});
-
-
-const cacChamSlide =
-    Array.from(
-        document.querySelectorAll(".cham-slide")
-    );
+    tongSo.textContent =
+        String(duLieuSlide.length);
+}
 
 
-/* =====================================================
-   HIỆN SLIDE
-===================================================== */
+// =========================================
+// CHUYỂN SLIDE
+// =========================================
 
-function hienThiSlide(viTri, huong = 1) {
+function hienThiSlide(viTri) {
 
     if (
         viTri < 0 ||
-        viTri >= tongSoSlide ||
-        dangChuyenSlide
+        viTri >= duLieuSlide.length
     ) {
         return;
     }
 
-    dangChuyenSlide = true;
+    const cacSlide =
+        document.querySelectorAll(".slide");
 
-
-    danhSachSlide.forEach((slide, i) => {
-
-        slide.classList.remove("dang-hien");
-
-        if (i === viTri) {
-
-            slide.style.transform =
-                huong > 0
-                    ? "translateX(35px)"
-                    : "translateX(-35px)";
-
-            requestAnimationFrame(() => {
-
-                slide.classList.add("dang-hien");
-
-                slide.style.transform =
-                    "translateX(0)";
-
-            });
-
-        }
-
+    cacSlide.forEach(slide => {
+        slide.classList.remove("active");
     });
 
+    cacSlide[viTri].classList.add("active");
 
-    slideDangXem = viTri;
+    slideHienTai = viTri;
 
-
-    /* Số slide */
-
-    slideHienTai.textContent =
-        String(viTri + 1).padStart(2, "0");
+    capNhatGiaoDien();
+}
 
 
-    /* Thanh tiến trình */
+// =========================================
+// CẬP NHẬT GIAO DIỆN
+// =========================================
+
+function capNhatGiaoDien() {
+
+    const so =
+        String(slideHienTai + 1)
+            .padStart(2, "0");
+
+    soHienTai.textContent = so;
 
     const phanTram =
-        ((viTri + 1) / tongSoSlide) * 100;
+        ((slideHienTai + 1) /
+            duLieuSlide.length) * 100;
 
-    thanhTienTrinh.style.width =
+    tienTrinh.style.width =
         `${phanTram}%`;
 
-
-    /* Chấm */
-
-    cacChamSlide.forEach((cham, i) => {
-
-        cham.classList.toggle(
-            "dang-chon",
-            i === viTri
-        );
-
-    });
-
-
-    /* Nút */
-
     nutTruoc.disabled =
-        viTri === 0;
+        slideHienTai === 0;
 
     nutSau.disabled =
-        viTri === tongSoSlide - 1;
-
-
-    /* Đưa slide về đầu */
-
-    danhSachSlide[viTri].scrollTop = 0;
-
-
-    setTimeout(() => {
-
-        dangChuyenSlide = false;
-
-    }, 550);
-
+        slideHienTai === duLieuSlide.length - 1;
 }
 
 
-/* =====================================================
-   ĐI TỚI SLIDE
-===================================================== */
-
-function diToiSlide(viTri) {
-
-    if (viTri === slideDangXem) {
-        return;
-    }
-
-    const huong =
-        viTri > slideDangXem
-            ? 1
-            : -1;
-
-    hienThiSlide(
-        viTri,
-        huong
-    );
-
-}
-
-
-/* =====================================================
-   SLIDE SAU
-===================================================== */
-
-function slideSau() {
-
-    if (
-        slideDangXem <
-        tongSoSlide - 1
-    ) {
-
-        diToiSlide(
-            slideDangXem + 1
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   SLIDE TRƯỚC
-===================================================== */
-
-function slideTruoc() {
-
-    if (slideDangXem > 0) {
-
-        diToiSlide(
-            slideDangXem - 1
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   NÚT ĐIỀU KHIỂN
-===================================================== */
-
-nutSau.addEventListener(
-    "click",
-    slideSau
-);
+// =========================================
+// NÚT ĐIỀU HƯỚNG
+// =========================================
 
 nutTruoc.addEventListener(
     "click",
-    slideTruoc
-);
+    () => {
 
-
-/* =====================================================
-   PHÍM BÀN PHÍM
-===================================================== */
-
-document.addEventListener(
-    "keydown",
-    (event) => {
-
-        const phim =
-            event.key.toLowerCase();
-
-
-        if (
-            phim === "arrowright" ||
-            phim === " " ||
-            phim === "pagedown"
-        ) {
-
-            event.preventDefault();
-
-            slideSau();
-
-        }
-
-
-        else if (
-            phim === "arrowleft" ||
-            phim === "pageup"
-        ) {
-
-            event.preventDefault();
-
-            slideTruoc();
-
-        }
-
-
-        else if (phim === "home") {
-
-            event.preventDefault();
-
-            diToiSlide(0);
-
-        }
-
-
-        else if (phim === "end") {
-
-            event.preventDefault();
-
-            diToiSlide(
-                tongSoSlide - 1
-            );
-
-        }
-
+        hienThiSlide(
+            slideHienTai - 1
+        );
     }
 );
 
 
-/* =====================================================
-   QUIZ
-===================================================== */
-
-const cacSlideCauHoi =
-    Array.from(
-        document.querySelectorAll(".slide-cau-hoi")
-    );
-
-
-cacSlideCauHoi.forEach(
-    (slide, soCau) => {
-
-        const cacDapAn =
-            Array.from(
-                slide.querySelectorAll(".dap-an")
-            );
-
-        const phanHoi =
-            slide.querySelector(".phan-hoi");
-
-        const tenCau =
-            `cau${soCau + 1}`;
-
-        cacDapAn.forEach((nut) => {
-
-            nut.addEventListener(
-                "click",
-                () => {
-
-                    /* Không cho bấm lại */
-
-                    cacDapAn.forEach(
-                        (item) => {
-
-                            item.disabled = true;
-
-                        }
-                    );
-
-
-                    const dapAnChon =
-                        nut.dataset.dapAn;
-
-                    const dapAnDung =
-                        window.dapAnDung
-                            ? window.dapAnDung[tenCau]
-                            : null;
-
-
-                    /*
-                       data.js khai báo const.
-                       Ở đây dùng dữ liệu tương ứng
-                       theo số câu.
-                    */
-
-                    const dapAnChinhXac =
-                        soCau === 0
-                            ? "C"
-                            : soCau === 1
-                                ? "C"
-                                : "B";
-
-
-                    if (
-                        dapAnChon ===
-                        dapAnChinhXac
-                    ) {
-
-                        nut.classList.add(
-                            "chon-dung"
-                        );
-
-                        phanHoi.textContent =
-                            "✓ Chính xác!";
-
-                        phanHoi.className =
-                            "phan-hoi dung";
-
-                    } else {
-
-                        nut.classList.add(
-                            "chon-sai"
-                        );
-
-
-                        cacDapAn.forEach(
-                            (item) => {
-
-                                if (
-                                    item.dataset.dapAn ===
-                                    dapAnChinhXac
-                                ) {
-
-                                    item.classList.add(
-                                        "dap-an-dung"
-                                    );
-
-                                }
-
-                            }
-                        );
-
-
-                        phanHoi.textContent =
-                            `Chưa đúng — đáp án đúng là ${dapAnChinhXac}.`;
-
-                        phanHoi.className =
-                            "phan-hoi sai";
-
-                    }
-
-                }
-            );
-
-        });
-
-    }
-);
-
-
-/* =====================================================
-   NHẠC NỀN
-===================================================== */
-
-let daBatNhac = false;
-
-
-function batNhacNen() {
-
-    if (
-        daBatNhac ||
-        !nhacNen
-    ) {
-        return;
-    }
-
-    nhacNen.volume = 0.16;
-
-    nhacNen.play()
-        .then(() => {
-
-            daBatNhac = true;
-
-        })
-        .catch(() => {
-
-            /*
-                Trình duyệt có thể chặn autoplay.
-                Khi người dùng bấm vào trang,
-                ta sẽ thử phát lại.
-            */
-
-        });
-
-}
-
-
-document.addEventListener(
+nutSau.addEventListener(
     "click",
-    batNhacNen,
-    {
-        once: true
+    () => {
+
+        hienThiSlide(
+            slideHienTai + 1
+        );
     }
 );
 
 
-/* =====================================================
-   HIỆU ỨNG NỀN NHẸ
-===================================================== */
+// =========================================
+// QUIZ
+// =========================================
 
-const hatSang =
-    document.getElementById("hat-sang");
+function xuLyClickQuiz(event) {
 
+    const nut =
+        event.target.closest(".dap-an");
 
-function taoHatSang() {
-
-    if (!hatSang) {
+    if (!nut) {
         return;
     }
 
-    const soLuong =
-        window.innerWidth < 700
-            ? 12
-            : 24;
+    const slide =
+        nut.closest(".slide");
 
-    for (
-        let i = 0;
-        i < soLuong;
-        i++
-    ) {
+    const viTriSlide =
+        Number(slide.dataset.so);
 
-        const hat =
-            document.createElement("span");
+    const duLieu =
+        duLieuSlide[viTriSlide];
 
-        hat.className =
-            "hat";
+    const luaChon =
+        Number(nut.dataset.dapAn);
 
-        hat.style.left =
-            `${Math.random() * 100}%`;
+    const cacNut =
+        slide.querySelectorAll(".dap-an");
 
-        hat.style.top =
-            `${Math.random() * 100}%`;
+    const phanHoi =
+        slide.querySelector(".phan-hoi");
 
-        hat.style.animationDuration =
-            `${9 + Math.random() * 12}s`;
 
-        hat.style.animationDelay =
-            `${Math.random() * -12}s`;
+    cacNut.forEach(nutDapAn => {
+        nutDapAn.disabled = true;
+    });
 
-        hatSang.appendChild(hat);
 
+    if (luaChon === duLieu.dapAn) {
+
+        nut.classList.add("dung");
+
+        phanHoi.className =
+            "phan-hoi dung";
+
+        phanHoi.textContent =
+            "✓ Chính xác! Em đã chọn đúng đáp án.";
     }
 
+    else {
+
+        nut.classList.add("sai");
+
+        cacNut[
+            duLieu.dapAn
+        ].classList.add("dung");
+
+        phanHoi.className =
+            "phan-hoi sai";
+
+        phanHoi.textContent =
+            `✗ Chưa đúng. Đáp án đúng là ${
+                ["A", "B", "C", "D"][duLieu.dapAn]
+            }.`;
+    }
 }
 
 
-taoHatSang();
+// =========================================
+// ÂM NHẠC
+// =========================================
 
+function capNhatNutNhac() {
 
-/* =====================================================
-   SWIPE
-===================================================== */
+    if (dangPhatNhac) {
 
-let viTriBatDau = 0;
-let viTriKetThuc = 0;
+        nutNhac.textContent =
+            "🔊 Đang phát";
 
+    } else {
 
-document.addEventListener(
-    "touchstart",
-    (event) => {
-
-        viTriBatDau =
-            event.changedTouches[0].screenX;
-
-    },
-    {
-        passive: true
+        nutNhac.textContent =
+            "🔇 Nhạc nền";
     }
-);
+}
 
 
-document.addEventListener(
-    "touchend",
-    (event) => {
+async function batNhac() {
 
-        viTriKetThuc =
-            event.changedTouches[0].screenX;
+    try {
 
-        const khoangCach =
-            viTriKetThuc -
-            viTriBatDau;
+        await nhacNen.play();
 
-        if (
-            Math.abs(khoangCach) < 60
-        ) {
-            return;
-        }
+        dangPhatNhac = true;
 
-        if (khoangCach < 0) {
+        capNhatNutNhac();
 
-            slideSau();
+    } catch (loi) {
+
+        console.log(
+            "Chưa thể phát nhạc:",
+            loi
+        );
+
+        nutNhac.textContent =
+            "⚠️ Kiểm tra MP3";
+    }
+}
+
+
+function dungNhac() {
+
+    nhacNen.pause();
+
+    dangPhatNhac = false;
+
+    capNhatNutNhac();
+}
+
+
+nutNhac.addEventListener(
+    "click",
+    async () => {
+
+        if (dangPhatNhac) {
+
+            dungNhac();
 
         } else {
 
-            slideTruoc();
-
+            await batNhac();
         }
-
-    },
-    {
-        passive: true
     }
 );
 
 
-/* =====================================================
-   KHỞI ĐỘNG
-===================================================== */
+nhacNen.addEventListener(
+    "error",
+    () => {
 
-hienThiSlide(
-    0,
-    1
+        nutNhac.textContent =
+            "⚠️ Chưa có MP3";
+    }
 );
 
 
-console.log(
-    "Lịch sử 9 - Bài 5 - Phần 4 | Nhóm 4 - 9A.6"
+// =========================================
+// PHÍM TẮT
+// =========================================
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "ArrowRight" ||
+            event.key === " " ||
+            event.key === "PageDown"
+        ) {
+
+            event.preventDefault();
+
+            hienThiSlide(
+                slideHienTai + 1
+            );
+        }
+
+
+        if (
+            event.key === "ArrowLeft" ||
+            event.key === "PageUp"
+        ) {
+
+            event.preventDefault();
+
+            hienThiSlide(
+                slideHienTai - 1
+            );
+        }
+
+
+        if (
+            event.key === "Home"
+        ) {
+
+            hienThiSlide(0);
+        }
+
+
+        if (
+            event.key === "End"
+        ) {
+
+            hienThiSlide(
+                duLieuSlide.length - 1
+            );
+        }
+
+
+        if (
+            event.key === "m" ||
+            event.key === "M"
+        ) {
+
+            nutNhac.click();
+        }
+    }
 );
+
+
+// =========================================
+// KHỞI ĐỘNG
+// =========================================
+
+taoTatCaSlide();
+
+hienThiSlide(0);
